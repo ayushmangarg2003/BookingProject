@@ -13,8 +13,10 @@ const bookingRoutes = require('./routes/BookingRoute')
 const placeRoutes = require('./routes/PlaceRoute')
 
 const app = express()
+
 // Middlewares
 app.use(cors())
+app.use('/uploads', express.static(__dirname + '/uploads'));
 app.use(express.json());
 app.use(cookieParser());
 
@@ -27,7 +29,7 @@ app.get('/test', (req, res) => {
     res.json({ "test-status": "success" })
 })
 
-//Listening
+// Listening
 mongoose.connect(MONGO_URI).then(
     app.listen(PORT, () => {
         console.log(`Connected to DB and Listening at port ${PORT}`);

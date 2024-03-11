@@ -1,51 +1,27 @@
+// Imports
 const express = require('express');
+const multer = require('multer');
+const { getAllPlaces, getPlaceByID, addPlace, updatePlace, uploadbylink, uploadImage, getUserPlaces } = require('../controllers/PlaceController');
+
+// Router Setup
 const router = express.Router();
 
-router.get('/', async (req, res) => {
-    res.json(await Place.find());
-});
 
-router.get('/:id', async (req, res) => {
-    const { id } = req.params;
-    res.json(await Place.findById(id));
-});
+// Routes
+router.get('/', getAllPlaces);
 
-router.post('/', (req, res) => {
-    const { token } = req.cookies;
-    const {
-        title, address, addedPhotos, description, price,
-        perks, extraInfo, checkIn, checkOut, maxGuests,
-    } = req.body;
-    jwt.verify(token, jwtSecret, {}, async (err, userData) => {
-        if (err) throw err;
-        const placeDoc = await Place.create({
-            owner: userData.id, price,
-            title, address, photos: addedPhotos, description,
-            perks, extraInfo, checkIn, checkOut, maxGuests,
-        });
-        res.json(placeDoc);
-    });
-});
+router.get('/:id', getPlaceByID);
 
-router.put('/', async (req, res) => {
-    const { token } = req.cookies;
-    const {
-        id, title, address, addedPhotos, description,
-        perks, extraInfo, checkIn, checkOut, maxGuests, price,
-    } = req.body;
-    jwt.verify(token, jwtSecret, {}, async (err, userData) => {
-        if (err) throw err;
-        const placeDoc = await Place.findById(id);
-        if (userData.id === placeDoc.owner.toString()) {
-            placeDoc.set({
-                title, address, photos: addedPhotos, description,
-                perks, extraInfo, checkIn, checkOut, maxGuests, price,
-            });
-            await placeDoc.save();
-            res.json('ok');
-        }
-    });
-});
+router.post('/upload-by-link', uploadbylink);
 
+const photosMiddleware = multer({ dest: '/tmp' });
+router.post('/upload', photosMiddleware.array('photos', 100), uploadImage);
 
+router.post('/', addPlace);
+
+router.put('/', updatePlace);
+
+router.get('/user-places', getUserPlaces);
+
+// Exports
 module.exports = router;
