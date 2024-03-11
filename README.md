@@ -9,6 +9,7 @@ https://booking-project-delta.vercel.app/
 ## Frontend
 - react-router-dom
 - axios
+= autoprefixer
 
 ## Backend
 - express
