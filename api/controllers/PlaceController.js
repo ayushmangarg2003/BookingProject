@@ -23,20 +23,6 @@ const uploadbylink = async (req, res) => {
     res.json(newName);
 }
 
-// Upload images by device
-const uploadImage = (req, res) => {
-    const uploadedFiles = [];
-    for (let i = 0; i < req.files.length; i++) {
-        const { path, originalname } = req.files[i];
-        const parts = originalname.split('.');
-        const ext = parts[parts.length - 1];
-        const newPath = path + '.' + ext;
-        fs.renameSync(path, newPath);
-        uploadedFiles.push(newPath.replace('uploads/', ''));
-    }
-    res.json(uploadedFiles);
-}
-
 const addPlace = (req, res) => {
     const { token } = req.cookies;
     const {
@@ -83,4 +69,4 @@ const getUserPlaces = (req, res) => {
     });
 }
 
-module.exports = {getAllPlaces, getPlaceByID, uploadImage, uploadbylink, addPlace, updatePlace, getUserPlaces}
+module.exports = {getAllPlaces, getPlaceByID, uploadbylink, addPlace, updatePlace, getUserPlaces}

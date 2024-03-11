@@ -1,7 +1,7 @@
 // Imports
 const express = require('express');
 const multer = require('multer');
-const { getAllPlaces, getPlaceByID, addPlace, updatePlace, uploadbylink, uploadImage, getUserPlaces } = require('../controllers/PlaceController');
+const { getAllPlaces, getPlaceByID, addPlace, updatePlace, uploadbylink, getUserPlaces } = require('../controllers/PlaceController');
 
 // Router Setup
 const router = express.Router();
@@ -13,9 +13,6 @@ router.get('/', getAllPlaces);
 router.get('/:id', getPlaceByID);
 
 router.post('/upload-by-link', uploadbylink);
-
-const photosMiddleware = multer({ dest: '/tmp' });
-router.post('/upload', photosMiddleware.array('photos', 100), uploadImage);
 
 router.post('/', addPlace);
 
