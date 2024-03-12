@@ -1,0 +1,140 @@
+/* Navbar */
+.navbar-parent {
+  display: flex;
+  justify-content: space-between;
+  padding: 1rem 0;
+  z-index: 2;
+
+  .nav-left {
+    .logo-link {
+      display: flex;
+      gap: 10px;
+      align-items: center;
+      font-family: var(--wide);
+      color: var(--white);
+      text-decoration: none;
+
+      .logo-img {
+        font-size: 2.25rem;
+      }
+
+      .logo-name {
+        font-size: 1.75rem;
+        display: flex;
+        font-weight: 600;
+
+        & p {
+          color: var(--light-red);
+          font-weight: 700;
+        }
+      }
+    }
+  }
+
+  .nav-center {
+    width: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 2rem;
+
+    :hover {
+      text-decoration: underline;
+      text-decoration-color: var(--light-red);
+      text-decoration-thickness: 4px;
+    }
+
+    .navlink {
+      display: flex;
+      gap: 5px;
+      align-items: center;
+
+      .navlink-link {
+        color: var(--white);
+        text-decoration: none;
+        font-size: 1.2rem;
+        transition: var(--transition-normal);
+      }
+    }
+  }
+
+  .nav-right {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    z-index: 100;
+
+    .user-icon {
+      & i {
+        background-color: var(--white);
+        color: var(--white);
+        width: 100%;
+        font-size: 1.5rem;
+        padding: 0.5rem;
+        height: 100%;
+        border-radius: 50%;
+      }
+    }
+
+    .login-btn {
+      background-color: var(--white);
+      padding: 8px 12px;
+      border-radius: 2px;
+      transition: var(--transition-normal);
+      cursor: pointer;
+
+      .navbar-login-link {
+        text-decoration: none;
+        transition: var(--transition-normal);
+        color: var(--black);
+      }
+    }
+
+    .login-btn:hover {
+      background-color: var(--light-red);
+      color: var(--black-light);
+
+      .navbar-login-link {
+        color: var(--white);
+      }
+    }
+
+    .hamburger-icon {
+      display: none;
+      color: var(--white);
+    }
+  }
+}
+
+
+/* Media Query 800px */
+@media only screen and (max-width:800px) {
+
+  .navbar-parent {
+    padding: 1rem 10px;
+    z-index: 3;
+
+    .nav-center {
+      flex-direction: column;
+      position: absolute;
+      width: 100%;
+      left: -100%;
+      opacity: 0;
+      height: 90%;
+      transition: var(--normal);
+      background-color: var(--black);
+    }
+
+    .nav-center.active {
+      opacity: 1;
+      left: 0;
+    }
+
+    .nav-right {
+      .hamburger-icon {
+        display: block;
+        font-size: 1.5rem;
+      }
+    }
+  }
+}
