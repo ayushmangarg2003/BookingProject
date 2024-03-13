@@ -7,6 +7,7 @@ import { COMPANY_NAME_1, COMPANY_NAME_2, ICON, NAVLINKS } from '../../utils/data
 
 const Navbar = () => {
   const { user } = useContext(UserContext);
+  
   const [state, setState] = useState(false);
   const handleClick = () => {
     setState(!state)

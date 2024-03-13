@@ -1,24 +1,23 @@
-import React from 'react'
+import React from 'react';
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import axios from 'axios'
 
-import Navbar from "../Navbar/Navbar"
-import Footer from "../Footer/Footer"
+import Navbar from "../Navbar/Navbar";
+import Footer from "../Footer/Footer";
 
-import Login from "../../pages/Login"
-import Register from "../../pages/Register"
-import Home from '../../pages/Home';
-import Profile from '../../pages/Profile';
+import Login from "../../pages/Login/Login";
+import Register from "../../pages/Register/Register";
+import Home from '../../pages/Home/Home';
+import Contact from '../../pages/Contact/Contact';
+import Profile from '../../pages/Profile/Profile';
 import ProfilePlaces from '../../pages/ProfilePlaces';
 import AddProfilePlaces from '../../pages/AddProfilePlaces';
 import SinglePlace from '../../pages/SinglePlace';
 import Bookings from '../../pages/Bookings';
 import SingleBooking from '../../pages/SingleBooking';
+import Places from '../../pages/Places';
+import About from '../../pages/About/About';
 
 import { UserContextProvider } from "../../context/UserContext";
-import Places from '../../pages/Places';
-import About from '../../pages/About';
-import Contact from '../../pages/Contact';
 import "./App.css"
 
 

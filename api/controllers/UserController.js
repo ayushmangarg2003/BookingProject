@@ -2,43 +2,35 @@ const User = require('../models/UserModel');
 const jwt = require('jsonwebtoken');
 const mime = require('mime-types');
 const bcrypt = require('bcryptjs');
-const bcryptSalt = bcrypt.genSaltSync(10);
-const jwtSecret = 'thisisjwtsecret';
-
+const jwtSecret = process.env.JWT_SECRET
 // Register User
 const registerUser = async (req, res) => {
     const { name, email, password } = req.body;
+
     try {
-        const userDoc = await User.create({
-            name,
-            email,
-            password: bcrypt.hashSync(password, bcryptSalt),
-        });
-        res.json(userDoc);
-    } catch (e) {
-        res.status(422).json(e);
+        const user = await User.register(name, email, password)
+        res.status(200).json({ user })
+    } catch (error) {
+        res.status(400).json({ error: error.message })
     }
 }
 
 // Login User
 const loginUser = async (req, res) => {
     const { email, password } = req.body;
-    const userDoc = await User.findOne({ email });
-    if (userDoc) {
-        const passOk = bcrypt.compareSync(password, userDoc.password);
-        if (passOk) {
+    try {
+        const user = await User.login(email, password)
+        if (user) {
             jwt.sign({
-                email: userDoc.email,
-                id: userDoc._id
+                email: user.email,
+                id: user._id
             }, jwtSecret, {}, (err, token) => {
                 if (err) throw err;
-                res.cookie('token', token).json(userDoc);
+                res.cookie('token', token).json(user);
             });
-        } else {
-            res.status(422).json('pass not ok');
         }
-    } else {
-        res.json('not found');
+    } catch (error) {
+        res.status(400).json({ error: error.message })
     }
 }
 

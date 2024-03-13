@@ -1,0 +1,103 @@
+.login-parent {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 2.5rem;
+    
+
+    .login-form {
+        background-color: var(--white);
+        display: flex;
+        flex-direction: column;
+        gap: 2rem;
+        padding: 2rem;
+        box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.19);
+        border-radius: 8px;
+        width: 50%;
+
+        & h1 {
+            display: flex;
+            gap: 10px;
+            text-decoration: underline;
+            text-decoration-color: var(--light-red);
+
+            & p {
+                color: var(--light-red);
+            }
+        }
+
+        & input {
+            border-radius: 4px;
+            padding: 8px 12px;
+            font-size: 1rem;
+            font-weight: 500;
+            outline: none;
+            border: 1px solid var(--white);
+            border-bottom: 1px solid var(--black-light);
+        }
+
+        .login-input {
+            display: flex;
+            flex-direction: column;
+            border-radius: 4px;
+            & label {
+                font-size: 1.5rem;
+                font-family: var(--wide);
+                font-weight: 600;
+            }
+        }
+
+        .login-btn {
+            background-color: var(--light-red);
+            border-radius: 4px;
+            padding: 8px 12px;
+            text-align: center;
+            font-weight: 400;
+            font-size: 1.2rem;
+            cursor: pointer;
+        }
+
+        .login-btn:hover {
+            font-weight: 600;
+        }
+
+        .login-newhere {
+            text-align: center;
+            font-size: 1rem;
+            color: var(--black-light);
+
+            .login-register-redirect {
+                font-weight: 600;
+                text-decoration: underline;
+                color: var(--black);
+            }
+        }
+    }
+}
+
+
+
+@media only screen and (max-width:800px) {
+    .login-parent {
+        .login-form {
+            width: 100%;
+        }
+    }
+}
+
+/* Media Query 520px */
+@media only screen and (max-width:520px) {
+    .login-parent {
+        padding: 2.5rem 0;
+
+        .login-form {
+            padding: 2rem 1rem;
+            width: 100%;
+            gap: 1.5rem;
+
+            & h1 {
+                font-size: 1.25rem;
+            }
+        }
+    }
+}

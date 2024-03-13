@@ -1,11 +1,49 @@
 const mongoose = require('mongoose');
-const {Schema} = mongoose;
+const { Schema } = mongoose;
+const bcrypt = require('bcryptjs')
 
 const UserSchema = new Schema({
   name: String,
-  email: {type:String, unique:true},
+  email: { type: String, unique: true },
   password: String,
 });
+
+UserSchema.statics.register = async function (name, email, password) {
+  if (!name || !email || !password) {
+    throw Error('All fields must be filled')
+  }
+
+  const exists = await this.findOne({ email })
+  if (exists) {
+    throw Error('User already exists')
+  }
+
+  const salt = await bcrypt.genSalt(10)
+  const hash = await bcrypt.hash(password, salt)
+  const user = await this.create({ name, email, password: hash })
+
+  return user
+}
+
+// Login Method
+UserSchema.statics.login = async function (email, password) {
+  // Validating
+  if (!email || !password) {
+    throw Error('All fields must be filled')
+  }
+  const user = await this.findOne({ email })
+  if (!user) {
+    throw Error('User does not exist')
+  }
+  const match = await bcrypt.compare(password, user.password)
+
+  if (!match) {
+    throw Error('Incorrect Password')
+  }
+
+  return user
+}
+
 
 const UserModel = mongoose.model('User', UserSchema);
 module.exports = UserModel;
