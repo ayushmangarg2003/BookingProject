@@ -15,3 +15,9 @@
     z-index: 2;
     min-height: 85vh;
 }
+
+@media only screen and (max-width:520px) {
+    .app{
+        padding: 0rem 5px;
+    }
+}

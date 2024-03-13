@@ -7,7 +7,6 @@ import { COMPANY_NAME_1, COMPANY_NAME_2, ICON, NAVLINKS } from '../../utils/data
 
 const Navbar = () => {
   const { user } = useContext(UserContext);
-  
   const [state, setState] = useState(false);
   const handleClick = () => {
     setState(!state)
@@ -31,9 +30,10 @@ const Navbar = () => {
 
       <div className="nav-right">
         {user && (
-          <div>
-            <Link className='user-icon' to={`/profile`}><i className="fa-solid fa-user"></i></Link>
-          </div>
+          <Link to={'./profile'} className='user-nav'>
+            <div className='user-icon'><i className="fa-solid fa-user"></i></div>
+            <div className='nav-user-name'>{user.name}</div>
+          </Link>
         )}
         {!user && (
           <div className="login-btn"><Link className='navbar-login-link' to={'/login'}>Login</Link></div>
