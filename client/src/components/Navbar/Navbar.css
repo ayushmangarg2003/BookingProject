@@ -63,7 +63,6 @@
 
   .nav-right {
     display: flex;
-    gap: 10px;
     align-items: center;
     z-index: 100;
 
@@ -72,18 +71,9 @@
       justify-content: left;
       align-items: center;
       border-radius: 33px;
-      width: 100px;
+      width: 100%;
       background-color: var(--light-red);
       text-decoration: none;
-
-      .nav-user-name {
-        text-decoration: none;
-        width: 40%;
-        overflow: hidden;
-        font-weight: 600;
-        font-size: 12px;
-        color: var(--white);
-      }
     }
 
     .user-icon {
@@ -93,7 +83,7 @@
         background-color: var(--white);
         color: var(--light-red);
         width: 100%;
-        font-size: 1.25rem;
+        font-size: 1rem;
         padding: 0.5rem;
         height: 100%;
         border-radius: 50%;
@@ -141,9 +131,20 @@
 @media only screen and (max-width:800px) {
 
   .navbar-parent {
-    padding: 1rem 10px;
-    z-index: 3;
-    min-height: none;
+    padding: 1rem 5px;
+
+    .nav-left {
+      .logo-link {
+        .logo-img {
+          font-size: 2rem;
+        }
+
+        .logo-name {
+          font-size: 1.5rem;
+        }
+      }
+    }
+
 
     .nav-center {
       flex-direction: column;

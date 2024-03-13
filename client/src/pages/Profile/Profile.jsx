@@ -5,6 +5,7 @@ import './Profile.css'
 import axios from 'axios'
 import { BackendLink } from "../../components/App/App"
 import ProfileNavbar from '../../components/ProfileNavbar/ProfileNavbar';
+import profilePic from "../../assets/profilePic.png"
 
 const Profile = () => {
   const [redirect, setRedirect] = useState(null);
@@ -39,9 +40,10 @@ const Profile = () => {
       </div>
       {subpage === 'profile' && (
         <div className="profile-parent">
-          Profile Details: <br />
-          Name:- {user.name} <br />
-          Email:- {user.email}<br />
+          <img src={profilePic} alt="" />
+          <h1>Your Profile</h1>
+          <p>Name: {user.name}</p>
+          <p>Email: {user.email}</p>
           <div onClick={logout} className="logout-btn">Logout</div>
         </div>
       )}

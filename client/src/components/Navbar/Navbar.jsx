@@ -32,7 +32,6 @@ const Navbar = () => {
         {user && (
           <Link to={'./profile'} className='user-nav'>
             <div className='user-icon'><i className="fa-solid fa-user"></i></div>
-            <div className='nav-user-name'>{user.name}</div>
           </Link>
         )}
         {!user && (
