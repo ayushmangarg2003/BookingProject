@@ -3,6 +3,8 @@
   display: flex;
   justify-content: space-between;
   padding: 1rem 0;
+  min-height: 15vh;
+  align-items: center;
   z-index: 2;
 
   .nav-left {
@@ -48,6 +50,7 @@
       display: flex;
       gap: 5px;
       align-items: center;
+      text-transform: capitalize;
 
       .navlink-link {
         color: var(--white);
@@ -113,14 +116,16 @@
   .navbar-parent {
     padding: 1rem 10px;
     z-index: 3;
+    min-height: none;
 
     .nav-center {
       flex-direction: column;
       position: absolute;
+      top: 0;
       width: 100%;
       left: -100%;
       opacity: 0;
-      height: 90%;
+      height: 100%;
       transition: var(--normal);
       background-color: var(--black);
     }

@@ -1,7 +1,7 @@
 import React from 'react'
 import { Link } from "react-router-dom"
 import { HOTELS, HOME_DESC, HOME_HEAD, SATISFACTION, YEARS, HOMEBTNTEXT } from '../utils/data'
-import homeIMG from "../assets/homeBG.webp"
+import homeIMG from "../assets/homeBG.jpg"
 
 const Home = () => {
   return (
@@ -26,7 +26,7 @@ const Home = () => {
         </div>
       </div>
       <div className="home-right">
-        <img className='home-img' src={homeIMG} alt="" />
+        {/* <img className='home-img' src={homeIMG} alt="" /> */}
       </div>
     </div>
   )
