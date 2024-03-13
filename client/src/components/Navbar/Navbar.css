@@ -70,12 +70,18 @@
     .user-icon {
       & i {
         background-color: var(--white);
-        color: var(--white);
+        color: var(--black);
         width: 100%;
-        font-size: 1.5rem;
+        font-size: 1.25rem;
         padding: 0.5rem;
         height: 100%;
         border-radius: 50%;
+        transition: var(--transition-normal);
+
+        &:hover{
+          background-color: var(--light-red);
+          color: var(--white);
+        }
       }
     }
 

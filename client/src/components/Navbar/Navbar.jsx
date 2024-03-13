@@ -23,7 +23,7 @@ const Navbar = () => {
       <div className={state ? "nav-center active" : "nav-center"}>
         {
           NAVLINKS.map((item) => (
-            <div className="navlink" onClick={handleClick} ><Link className='navlink-link' to={`/${item}`}>{item}</Link></div>
+            <div key={item} className="navlink" onClick={handleClick} ><Link className='navlink-link' to={`/${item}`}>{item}</Link></div>
           ))
         }
       </div>

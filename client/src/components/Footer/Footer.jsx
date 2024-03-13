@@ -37,11 +37,9 @@ const Footer = () => {
           <h1>Quick Links</h1>
           {
             NAVLINKS.map((item) => (
-              <Link to={`/${item}`} className='footer-quicklink'>{item}</Link>
+              <Link key={item} to={`/${item}`} className='footer-quicklink'>{item}</Link>
             ))
           }
-          {/* <Link to={'/about'} className='footer-quicklink'>About</Link> */}
-          {/* <Link to={'/contact'} className='footer-quicklink'>Contact</Link> */}
         </div>
         <div className="quick-links">
           <h1>Support</h1>

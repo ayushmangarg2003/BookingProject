@@ -33,12 +33,14 @@
   justify-content: space-between;
   min-height: 80vh;
   height: auto;
+
   .home-left {
     width: 45%;
     display: flex;
     flex-direction: column;
     gap: 2rem;
     justify-content: center;
+
     & h1 {
       font-size: 2.5rem;
       font-family: var(--wide);
@@ -104,6 +106,107 @@
   }
 }
 
+/* Register Page */
+.register-parent {
+  display: flex;
+  justify-content: space-between;
+  padding: 2rem;
+
+  .register-left {
+    width: 40%;
+
+    & img {
+      width: 100%;
+    }
+  }
+
+  .register-right {
+    width: 60%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 1.75rem;
+    padding: 2rem 4rem;
+
+    .register-labels {
+      display: flex;
+      justify-content: flex-start;
+      gap: 1.75rem;
+      align-items: center;
+    }
+
+    .image-input {
+      opacity: 1;
+      background-color: red;
+      display: none;
+    }
+
+    .role-label {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 10px;
+      color: var(--black);
+      font-weight: 600;
+      font-size: 16px;
+
+      & select {
+        color: var(--black-light);
+        font-weight: 500;
+        font-size: 16px;
+        padding: 8px 16px;
+        outline: none;
+      }
+    }
+
+    & h1 {
+      display: flex;
+      gap: 10px;
+      font-family: var(--wide);
+      font-size: 1.75rem;
+
+      & p {
+        color: var(--yellow);
+      }
+    }
+
+    & input {
+      outline: invert;
+      padding: 8px 12px;
+      font-size: 1rem;
+      font-weight: 500;
+    }
+
+    .register-btn {
+      background-color: var(--yellow);
+      padding: 8px 12px;
+      text-align: center;
+      font-weight: 400;
+      font-size: 1.2rem;
+      cursor: pointer;
+
+    }
+
+    .register-btn:hover {
+      font-weight: 600;
+    }
+
+    .register-olduser {
+      text-align: center;
+      font-size: 1rem;
+      color: var(--black-light);
+
+      .register-login-redirect {
+        font-weight: 600;
+        text-decoration: underline;
+        color: var(--black);
+      }
+    }
+
+
+  }
+}
+
 /* Media Query 1000px */
 @media only screen and (max-width:1000px) {
   .home-container {
@@ -146,6 +249,40 @@
 
   }
 
+  /* Register */
+  .register-parent {
+    flex-direction: column-reverse;
+    justify-content: center;
+    align-items: center;
+    padding: 2rem 10rem;
+    gap: 2rem;
+
+    .register-left {
+      width: 100%;
+
+      & img {
+        width: 100%;
+      }
+    }
+
+    .register-right {
+      width: 100%;
+      padding: 1rem;
+
+    }
+  }
+}
+
+@media only screen and (max-width:800px) {
+
+  /* Register Page */
+  .register-parent {
+    padding: 3rem;
+
+    .register-right {
+      padding: 0rem;
+    }
+  }
 }
 
 /* Media Query 520px */
@@ -162,6 +299,19 @@
     .home-right {
       /* display: none; */
       width: 100%;
+    }
+  }
+
+  /* Register Page */
+  .register-parent {
+    padding: 1rem;
+
+    .register-right {
+      padding: 0rem;
+
+      & h1 {
+        font-size: 1.5rem;
+      }
     }
   }
 }

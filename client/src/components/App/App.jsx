@@ -22,8 +22,7 @@ import Contact from '../../pages/Contact';
 import "./App.css"
 
 
-axios.defaults.baseURL = 'http://localhost:4000/api';
-axios.defaults.withCredentials = true;
+export const BackendLink = 'http://localhost:4000/api'
 
 const App = () => {
   return (
