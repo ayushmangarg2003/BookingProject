@@ -17,6 +17,7 @@ const Login = () => {
   const handleSubmit = async e => {
     e.preventDefault()
     try {
+      
       const { data } = await axios.post(`${BackendLink}/user/login`, { email, password });
       setUser(data);
       navigate('/profile')

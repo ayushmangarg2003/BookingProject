@@ -29,6 +29,7 @@ const Navbar = () => {
       </div>
 
       <div className="nav-right">
+        
         {user && (
           <Link to={'./profile'} className='user-nav'>
             <div className='user-icon'><i className="fa-solid fa-user"></i></div>

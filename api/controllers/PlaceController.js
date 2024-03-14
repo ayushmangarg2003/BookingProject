@@ -1,6 +1,8 @@
 const fs = require('fs');
 const Place = require('../models/PlaceModel');
 const imageDownloader = require('image-downloader');
+const jwt = require('jsonwebtoken');
+const jwtSecret = process.env.JWT_SECRET
 
 
 const getAllPlaces = async (req, res) => {
@@ -23,21 +25,20 @@ const uploadbylink = async (req, res) => {
     res.json(newName);
 }
 
-const addPlace = (req, res) => {
+const addPlace = async (req, res) => {
     const { token } = req.cookies;
     const {
         title, address, addedPhotos, description, price,
         perks, extraInfo, checkIn, checkOut, maxGuests,
     } = req.body;
-    jwt.verify(token, jwtSecret, {}, async (err, userData) => {
-        if (err) throw err;
-        const placeDoc = await Place.create({
-            owner: userData.id, price,
-            title, address, photos: addedPhotos, description,
-            perks, extraInfo, checkIn, checkOut, maxGuests,
-        });
-        res.json(placeDoc);
+
+    const placeDoc = await Place.create({
+        price,
+        title, address, photos: addedPhotos, description,
+        perks, extraInfo, checkIn, checkOut, maxGuests,
     });
+
+    res.json(placeDoc);
 }
 
 const updatePlace = async (req, res) => {
@@ -46,18 +47,12 @@ const updatePlace = async (req, res) => {
         id, title, address, addedPhotos, description,
         perks, extraInfo, checkIn, checkOut, maxGuests, price,
     } = req.body;
-    jwt.verify(token, jwtSecret, {}, async (err, userData) => {
-        if (err) throw err;
-        const placeDoc = await Place.findById(id);
-        if (userData.id === placeDoc.owner.toString()) {
-            placeDoc.set({
-                title, address, photos: addedPhotos, description,
-                perks, extraInfo, checkIn, checkOut, maxGuests, price,
-            });
-            await placeDoc.save();
-            res.json('ok');
-        }
+    placeDoc.set({
+        title, address, photos: addedPhotos, description,
+        perks, extraInfo, checkIn, checkOut, maxGuests, price,
     });
+    await placeDoc.save();
+    res.json('ok');
 }
 
 // Get places of user
@@ -69,4 +64,4 @@ const getUserPlaces = (req, res) => {
     });
 }
 
-module.exports = {getAllPlaces, getPlaceByID, uploadbylink, addPlace, updatePlace, getUserPlaces}
+module.exports = { getAllPlaces, getPlaceByID, uploadbylink, addPlace, updatePlace, getUserPlaces }

@@ -10,7 +10,7 @@ import Home from '../../pages/Home/Home';
 import Contact from '../../pages/Contact/Contact';
 import Profile from '../../pages/Profile/Profile';
 import ProfilePlaces from '../../pages/ProfilePlaces/ProfilePlaces';
-import AddProfilePlaces from '../../pages/AddProfilePlaces';
+import AddProfilePlaces from '../../pages/AddProfilePlaces/AddProfilePlaces';
 import SinglePlace from '../../pages/SinglePlace';
 import Bookings from '../../pages/Bookings/Bookings';
 import SingleBooking from '../../pages/SingleBooking';

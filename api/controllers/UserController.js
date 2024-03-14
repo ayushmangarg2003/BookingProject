@@ -26,7 +26,8 @@ const loginUser = async (req, res) => {
                 id: user._id
             }, jwtSecret, {}, (err, token) => {
                 if (err) throw err;
-                res.cookie('token', token).json(user);
+                // res.json(user);
+                res.cookie('token', token).json(user)
             });
         }
     } catch (error) {

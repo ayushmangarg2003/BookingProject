@@ -1,0 +1,25 @@
+.profile-places-parent{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    padding: 2rem 0;
+
+    .add-btn{
+        background-color: var(--light-red);
+        color: var(--white);
+        padding: 8px 16px;
+        border-radius: 33px;
+        cursor: pointer;
+        transition: 0.3s ease;
+        text-decoration: none;
+        display: flex;
+        justify-content: center;
+        gap: 8px;
+        align-items: baseline;
+
+        &:hover{
+            background-color: var(--dark-red);
+        }
+    }
+}

@@ -37,6 +37,10 @@
         padding: 1rem;
     }
 
+    .profile-details {
+        overflow: scroll;
+    }
+
     .logout-btn {
         background-color: var(--light-red);
         padding: 10px 0;

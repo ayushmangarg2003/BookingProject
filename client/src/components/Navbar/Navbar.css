@@ -5,9 +5,10 @@
   padding: 1rem 0;
   min-height: 15vh;
   align-items: center;
-  z-index: 2;
+  z-index: 3;
 
   .nav-left {
+    width: 33%;
     .logo-link {
       display: flex;
       gap: 10px;
@@ -34,7 +35,7 @@
   }
 
   .nav-center {
-    width: auto;
+    width: 33%;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -65,13 +66,14 @@
     display: flex;
     align-items: center;
     z-index: 100;
+    width: 33%;
+    justify-content: end;
 
     .user-nav {
       display: flex;
-      justify-content: left;
+      justify-content: right;
       align-items: center;
       border-radius: 33px;
-      width: 100%;
       background-color: var(--light-red);
       text-decoration: none;
     }
@@ -122,6 +124,7 @@
     .hamburger-icon {
       display: none;
       color: var(--white);
+      margin: 0 10px;
     }
   }
 }
