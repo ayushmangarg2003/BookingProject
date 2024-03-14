@@ -4,11 +4,16 @@ import { BackendLink } from '../../components/App/App'
 import { useNavigate, Link } from 'react-router-dom'
 import axios from 'axios'
 import { UserContext } from '../../context/UserContext'
+import { useLogin } from '../../hooks/useLogin';
+
 
 const Login = () => {
   const [email, setEmail] = useState("")
   const [password, setPassword] = useState("")
-  const [error, setError] = useState(null)
+  // const [error, setError] = useState(null)
+
+  const { login, error } = useLogin()
+
 
   const navigate = useNavigate()
   const {setUser} = useContext(UserContext);
@@ -16,14 +21,16 @@ const Login = () => {
 
   const handleSubmit = async e => {
     e.preventDefault()
-    try {
+    await login(email, password)
+
+    // try {
       
-      const { data } = await axios.post(`${BackendLink}/user/login`, { email, password });
-      setUser(data);
-      navigate('/profile')
-    } catch (e) {
-      setError(e.response.data.error);
-    }
+    //   const { data } = await axios.post(`${BackendLink}/user/login`, { email, password });
+    //   setUser(data);
+    //   navigate('/profile')
+    // } catch (e) {
+    //   setError(e.response.data.error);
+    // }
   }
   return (
     <div className="login-parent">

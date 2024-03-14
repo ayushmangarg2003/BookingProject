@@ -6,26 +6,14 @@ import axios from 'axios'
 import { BackendLink } from "../../components/App/App"
 import ProfileNavbar from '../../components/ProfileNavbar/ProfileNavbar';
 import profilePic from "../../assets/profilePic.png"
-
+import { useUserContext } from '../../hooks/useUserContext';
+import { useLogout } from '../../hooks/useLogout'
 const Profile = () => {
-  const [redirect, setRedirect] = useState(null);
-  const { ready, user, setUser } = useContext(UserContext);
-  async function logout() {
-    await axios.post(`${BackendLink}/user/logout`);
-    setRedirect('/');
-    setUser(null);
-  }
+  const { user } = useUserContext()
+  const { logout } = useLogout()
 
-  if (redirect) {
-    return <Navigate to={redirect} />
-  }
-
-  if (!ready) {
-    return 'Loading...';
-  }
-
-  if (ready && !user.name && !redirect) {
-    return <Navigate to={'/login'} />
+  const handleLogout = () => {
+    logout()
   }
 
   return (
@@ -36,10 +24,10 @@ const Profile = () => {
       <div className="profile-parent">
         <img src={profilePic} alt="" />
         <h1>Your Profile</h1>
-        <p className='profile-details'>ID: {user._id}</p>
-        <p>Name: {user.name}</p>
+        {/* <p className='profile-details'>ID: {user._id}</p>
+        <p>Name: {user.name}</p> */}
         <p>Email: {user.email}</p>
-        <div onClick={logout} className="logout-btn">Logout</div>
+        <div onClick={handleLogout} className="logout-btn">Logout</div>
       </div>
     </div>
   )

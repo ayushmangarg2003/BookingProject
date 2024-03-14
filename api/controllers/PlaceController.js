@@ -28,12 +28,12 @@ const uploadbylink = async (req, res) => {
 const addPlace = async (req, res) => {
     const { token } = req.cookies;
     const {
-        title, address, addedPhotos, description, price,
+        owner, title, address, addedPhotos, description, price,
         perks, extraInfo, checkIn, checkOut, maxGuests,
     } = req.body;
 
     const placeDoc = await Place.create({
-        price,
+        price, owner,
         title, address, photos: addedPhotos, description,
         perks, extraInfo, checkIn, checkOut, maxGuests,
     });
@@ -44,11 +44,11 @@ const addPlace = async (req, res) => {
 const updatePlace = async (req, res) => {
     const { token } = req.cookies;
     const {
-        id, title, address, addedPhotos, description,
+        owner, id, title, address, addedPhotos, description,
         perks, extraInfo, checkIn, checkOut, maxGuests, price,
     } = req.body;
     placeDoc.set({
-        title, address, photos: addedPhotos, description,
+        owner, title, address, photos: addedPhotos, description,
         perks, extraInfo, checkIn, checkOut, maxGuests, price,
     });
     await placeDoc.save();

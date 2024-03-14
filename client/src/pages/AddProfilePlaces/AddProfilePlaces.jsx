@@ -5,6 +5,7 @@ import { Navigate, useParams } from 'react-router-dom'
 import { BackendLink } from '../../components/App/App'
 import axios from 'axios';
 import { UserContext } from '../../context/UserContext'
+import { useUserContext } from '../../hooks/useUserContext'
 const AddProfilePlaces = () => {
   const { id } = useParams();
   const [title, setTitle] = useState('');
@@ -19,11 +20,14 @@ const AddProfilePlaces = () => {
   const [maxGuests, setMaxGuests] = useState(1);
   const [price, setPrice] = useState(10000);
   const [redirect, setRedirect] = useState(false);
-  const { ready, user, setUser } = useContext(UserContext);
+  const [owner, setOwner] = useState("")
 
-  if (!user) {
-    return <Navigate to={'/login'} />
+  const getuser = async () => {
+    const { user } = await useUserContext()
+    setOwner(user.email)
   }
+  getuser()
+
 
   useEffect(() => {
     if (!id) {
@@ -42,7 +46,7 @@ const AddProfilePlaces = () => {
       setMaxGuests(data.maxGuests);
       setPrice(data.price);
     });
-  }, [id]);
+  },[id]);
 
   const handleCbClick = (ev) => {
     const { checked, name } = ev.target;
@@ -60,7 +64,7 @@ const AddProfilePlaces = () => {
   const handelSubmit = async (e) => {
     e.preventDefault()
     const placeData = {
-      title, address, addedPhotos,
+      owner,title, address, addedPhotos,
       description, perks, extraInfo,
       checkIn, checkOut, maxGuests, price,
     };
@@ -82,7 +86,6 @@ const AddProfilePlaces = () => {
     return <Navigate to={'/profile/places'} />
   }
 
-  
 
   return (
     <>

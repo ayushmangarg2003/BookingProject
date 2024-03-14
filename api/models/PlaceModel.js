@@ -1,6 +1,7 @@
 const mongoose = require('mongoose');
 
 const placeSchema = new mongoose.Schema({
+  owner: String,
   title: String,
   address: String,
   photos: [String],

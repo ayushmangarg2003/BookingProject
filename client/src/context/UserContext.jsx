@@ -1,22 +1,37 @@
-import {createContext, useEffect, useState} from "react";
-import axios from "axios";
+import { createContext, useReducer, useEffect } from 'react'
 
-export const UserContext = createContext({});
+export const UserContext = createContext()
 
-export function UserContextProvider({children}) {
-  const [user,setUser] = useState(null);
-  const [ready,setReady] = useState(false);
+export const authReducer = (state, action) => {
+  switch (action.type) {
+    case 'LOGIN':
+      return { user: action.payload }
+    case 'LOGOUT':
+      return { user: null }
+    default:
+      return state
+  }
+}
+
+export const UserContextProvider = ({ children }) => {
+  const [state, dispatch] = useReducer(authReducer, {
+    user: null
+  })
+
   useEffect(() => {
-    if (!user) {
-      axios.get('/user/profile').then(({data}) => {
-        setUser(data);
-        setReady(true);
-      });
+    const user = JSON.parse(localStorage.getItem('user'))
+
+    if (user) {
+      dispatch({ type: 'LOGIN', payload: user })
     }
-  }, []);
+  }, [])
+
+  console.log('UserContext:', state)
+
   return (
-    <UserContext.Provider value={{user,setUser,ready}}>
+    <UserContext.Provider value={{ ...state, dispatch }}>
       {children}
     </UserContext.Provider>
-  );
+  )
+
 }
