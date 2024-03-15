@@ -1,0 +1,17 @@
+.shimmer-laptop{
+    display: flex;
+    justify-content: center;
+    align-items: baseline;
+    display: grid;
+    grid-gap: 0 30px ;
+    grid-auto-rows: min-content;
+    grid-template-columns: 1fr 1fr;
+}
+
+@media only screen and (max-width:800px) {
+    .shimmer-laptop{
+        flex-direction: column;
+        gap: 10;
+        grid-template-columns: 1fr;
+    }
+}

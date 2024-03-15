@@ -1,7 +1,7 @@
 .places{
     display: flex;
     justify-content: center;
-    gap: 20px;
+    gap: 0 25px;
     width: 100%;
     flex-wrap: wrap;
 }

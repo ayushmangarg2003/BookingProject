@@ -30,22 +30,22 @@ const SinglePlace = () => {
           ))
         }
       </div>
-      <div>{placeDetail.title}</div>
-      <div>{placeDetail.owner}</div>
-      <div>{placeDetail.description}</div>
-      <div>{placeDetail.address}</div>
-      <div className="perks">
+      <div className='place-title'>{placeDetail.title}</div>
+      <div className='place-owner'>{placeDetail.owner}</div>
+      <div className='place-desc'>{placeDetail.description}</div>
+      <div className='place-address'>{placeDetail.address}</div>
+      <div className="place-perks">
         {
           placeDetail.perks.map((item) => (
             <div key={item}> {item} </div>
           ))
         }
       </div>
-      <div>{placeDetail.checkIn}</div>
-      <div>{placeDetail.checkOut}</div>
-      <div>{placeDetail.maxGuests}</div>
-      <div>{placeDetail.price}</div>
-      <div>{placeDetail.extraInfo}</div>
+      <div className='place-checkin'>{placeDetail.checkIn}</div>
+      <div className='place-checkout'>{placeDetail.checkOut}</div>
+      <div className='place-max'>{placeDetail.maxGuests}</div>
+      <div className='place-price'>{placeDetail.price}</div>
+      <div className='place-extra'>{placeDetail.extraInfo}</div>
     </>
   )
 }
