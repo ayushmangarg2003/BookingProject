@@ -24,8 +24,6 @@ const Profile = () => {
       <div className="profile-parent">
         <img src={profilePic} alt="" />
         <h1>Your Profile</h1>
-        {/* <p className='profile-details'>ID: {user._id}</p>
-        <p>Name: {user.name}</p> */}
         <p>Email: {user.email}</p>
         <div onClick={handleLogout} className="logout-btn">Logout</div>
       </div>

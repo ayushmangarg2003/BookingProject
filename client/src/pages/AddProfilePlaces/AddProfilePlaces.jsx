@@ -46,7 +46,7 @@ const AddProfilePlaces = () => {
       setMaxGuests(data.maxGuests);
       setPrice(data.price);
     });
-  },[id]);
+  }, [id]);
 
   const handleCbClick = (ev) => {
     const { checked, name } = ev.target;
@@ -64,7 +64,7 @@ const AddProfilePlaces = () => {
   const handelSubmit = async (e) => {
     e.preventDefault()
     const placeData = {
-      owner,title, address, addedPhotos,
+      owner, title, address, addedPhotos,
       description, perks, extraInfo,
       checkIn, checkOut, maxGuests, price,
     };
@@ -120,11 +120,13 @@ const AddProfilePlaces = () => {
             <input type="text" value={photo} onChange={ev => setPhoto(ev.target.value)} placeholder='Add Links one by one' />
             <div className="add-img-btn" onClick={handelPhoto}>Add</div>
           </div>
+          <div className="img-span-parent">
             {
-              addedPhotos.map((item)=>(
-                <span className='img-span' key={item}>{item}</span>
+              addedPhotos.map((item) => (
+                <img className='img-span' src={item} key={item} alt={item} />
               ))
             }
+          </div>
         </div>
 
         <div className="input-feild">
