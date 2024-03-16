@@ -28,15 +28,11 @@ const Bookings = () => {
         <ProfileNavbar />
       </div>
       <div>
-        
           {
-            bookingArray.filter(checkPlace).map((item) => (
-              // <PlaceCard to={'/profile/places'} key={item._id} place={item} />
-                <BookingCard user={item}/>
-              
+            bookingArray.filter(checkPlace).map((item, index) => (
+                <BookingCard key={index} user={item}/>           
             ))
           }
-        
       </div>
     </div>
   )

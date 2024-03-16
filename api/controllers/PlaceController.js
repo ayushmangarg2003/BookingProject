@@ -14,16 +14,6 @@ const getPlaceByID = async (req, res) => {
     res.json(await Place.findById(id));
 }
 
-// Upload Images by link
-const uploadbylink = async (req, res) => {
-    const { link } = req.body;
-    const newName = 'photo' + Date.now() + '.jpg';
-    await imageDownloader.image({
-        url: link,
-        dest: __dirname + '/uploads/' + newName,
-    });
-    res.json(newName);
-}
 
 const addPlace = async (req, res) => {
     const {
@@ -56,4 +46,4 @@ const updatePlace = async (req, res) => {
 
 
 
-module.exports = { getAllPlaces, getPlaceByID, uploadbylink, addPlace, updatePlace }
+module.exports = { getAllPlaces, getPlaceByID, addPlace, updatePlace }

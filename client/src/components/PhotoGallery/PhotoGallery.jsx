@@ -18,8 +18,8 @@ const PhotoGallery = (props) => {
                         </button>
                     </div>
                     <div className="gallery-bottom">
-                        {place?.photos?.length > 0 && place.photos.map(photo => (
-                            <div>
+                        {place?.photos?.length > 0 && place.photos.map((photo, index) => (
+                            <div key={index}>
                                 <img src={photo} alt="" />
                             </div>
                         ))}
@@ -44,8 +44,8 @@ const PhotoGallery = (props) => {
                         <img onClick={() => setShowAllPhotos(true)} src={place.photos[1]} alt="" />
                     )}
                     <div className='third-photo-container'>
-                        {place.photos?.[2] && (
-                            <img onClick={() => setShowAllPhotos(true)} src={place.photos[2]} alt="" />
+                        {place.photos?.[1] && (
+                            <img  onClick={() => setShowAllPhotos(true)} src={place.photos[2]} alt="" />
                         )}
                         <button onClick={() => setShowAllPhotos(true)}>
                             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" className="w-6 h-6">

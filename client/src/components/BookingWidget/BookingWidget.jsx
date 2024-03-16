@@ -3,6 +3,7 @@ import "./BookingWidget.css"
 import { useUserContext } from '../../hooks/useUserContext';
 import axios from 'axios';
 import { BackendLink } from '../App/App';
+import { useNavigate } from 'react-router-dom';
 
 const BookingWidget = (props) => {
     const place = props.place
@@ -11,7 +12,7 @@ const BookingWidget = (props) => {
     const [numberOfGuests, setNumberOfGuests] = useState(1);
     const [name, setName] = useState('');
     const [phone, setPhone] = useState('');
-    const [redirect, setRedirect] = useState('');
+    const navigate = useNavigate()
     const { user } = useUserContext()
 
     let numberOfNights = 1;
@@ -23,7 +24,7 @@ const BookingWidget = (props) => {
             price: numberOfNights * place.price,
         });
         const bookingId = response.data._id;
-        setRedirect(`/profile/bookings/${bookingId}`);
+        navigate(`/profile/bookings/${bookingId}`);
     }
 
 
@@ -38,17 +39,19 @@ const BookingWidget = (props) => {
                         <label>Check in:</label>
                         <input type="date"
                             value={checkIn}
+                            required={true}
                             onChange={ev => setCheckIn(ev.target.value)} />
                     </div>
                     <div>
                         <label>Check out:</label>
-                        <input type="date" value={checkOut}
+                        <input type="date" required={true} value={checkOut}
                             onChange={ev => setCheckOut(ev.target.value)} />
                     </div>
                 </div>
                 <div>
                     <label>Number of guests:</label>
                     <input type="number"
+                        required={true}
                         value={numberOfGuests}
                         onChange={ev => setNumberOfGuests(ev.target.value)} />
                 </div>
@@ -56,10 +59,12 @@ const BookingWidget = (props) => {
                     <div>
                         <label>Your full name:</label>
                         <input type="text"
+                            required={true}
                             value={name}
                             onChange={ev => setName(ev.target.value)} />
                         <label>Phone number:</label>
                         <input type="tel"
+                            required={true}
                             value={phone}
                             onChange={ev => setPhone(ev.target.value)} />
                     </div>

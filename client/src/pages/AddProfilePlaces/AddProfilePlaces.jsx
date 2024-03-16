@@ -36,7 +36,6 @@ const AddProfilePlaces = () => {
     else {
       axios.get(`${BackendLink}/places/${id}`).then(response => {
         const { data } = response;
-        console.log(data);
         // setTitle(data.title);
         // setAddress(data.address);
         // setAddedPhotos(data.photos);

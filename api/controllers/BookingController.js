@@ -1,7 +1,4 @@
 const Booking = require('../models/BookingModel');
-const jwt = require('jsonwebtoken');
-
-
 
 // Get Bookings
 const getBookings = async (req, res) => {
@@ -21,7 +18,6 @@ const postBookings = async (req, res) => {
     }).then((doc) => {
         res.json(doc);
     }).catch((err) => {
-        console.log(err);
         throw err;
     });
 }

@@ -1,15 +1,10 @@
-import React, { useContext, useState } from 'react'
-import { UserContext } from "../../context/UserContext";
-import { Navigate } from 'react-router-dom'
 import './Profile.css'
-import axios from 'axios'
-import { BackendLink } from "../../components/App/App"
 import ProfileNavbar from '../../components/ProfileNavbar/ProfileNavbar';
 import profilePic from "../../assets/profilePic.png"
 import { useUserContext } from '../../hooks/useUserContext';
 import { useLogout } from '../../hooks/useLogout'
 const Profile = () => {
-  const { user } = useUserContext()
+  const {user}  = useUserContext()
   const { logout } = useLogout()
 
   const handleLogout = () => {

@@ -12,8 +12,6 @@ router.get('/', getAllPlaces);
 
 router.get('/:id', getPlaceByID);
 
-router.post('/upload-by-link', uploadbylink);
-
 router.post('/', addPlace);
 
 router.put('/', updatePlace);

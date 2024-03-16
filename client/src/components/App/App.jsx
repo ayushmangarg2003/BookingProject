@@ -12,7 +12,6 @@ import ProfilePlaces from '../../pages/ProfilePlaces/ProfilePlaces';
 import AddProfilePlaces from '../../pages/AddProfilePlaces/AddProfilePlaces';
 import SinglePlace from '../../pages/SinglePlace/SinglePlace';
 import Bookings from '../../pages/Bookings/Bookings';
-import SingleBooking from '../../pages/SingleBooking/SingleBooking';
 import Places from '../../pages/Places/Places';
 import About from "../../pages/About/About"
 import { UserContextProvider } from "../../context/UserContext";
@@ -38,7 +37,6 @@ const App = () => {
               <Route path="/profile/places/:id" element={<AddProfilePlaces />} />
               <Route path="/places/:id" element={<SinglePlace />} />
               <Route path="/profile/bookings" element={<Bookings />} />
-              <Route path="/profile/bookings/:id" element={<SingleBooking />} />
               <Route path="/places" element={<Places />} />
               <Route path="/about" element={<About />} />
             </Routes>

@@ -2,30 +2,21 @@ import React, { useState } from 'react'
 import RegisterIMG from "../../assets/signup.gif"
 import { Link } from 'react-router-dom'
 import { useNavigate } from 'react-router-dom'
-import axios from 'axios'
-import { BackendLink } from '../../components/App/App'
 import './Register.css'
+import { useRegister } from "../../hooks/useRegister"
 
 const Register = () => {
   const [name, setName] = useState('')
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
-  const [error, setError] = useState(null)
 
-  const navigate = useNavigate()
+  const { register, error } = useRegister()
+
+  // const navigate = useNavigate()
 
   const handelSubmit = async (e) => {
     e.preventDefault()
-    try {
-      await axios.post(`${BackendLink}/user/register`, {
-        name,
-        email,
-        password,
-      });
-      navigate('/profile')
-    } catch (e) {
-      setError(e.response.data.error)
-    }
+    await register(name, email, password)
   }
 
 
