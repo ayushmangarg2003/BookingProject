@@ -37,7 +37,6 @@ const loginUser = async (req, res) => {
 
 // Get user profile
 const getProfile = async (req, res) => {
-    const { token } = req.cookies;
     const { name, email, _id } = await User.findById(userData.id);
     if (name || email) {
         res.json({ name, email, _id });

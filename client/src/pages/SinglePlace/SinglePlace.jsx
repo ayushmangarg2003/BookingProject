@@ -4,6 +4,7 @@ import { useLocation } from "react-router-dom";
 import { BackendLink } from '../../components/App/App';
 import axios from 'axios';
 import PhotoGallery from '../../components/PhotoGallery/PhotoGallery';
+import BookingWidget from '../../components/BookingWidget/BookingWidget';
 
 const SinglePlace = () => {
   const [place, setPlace] = useState({
@@ -36,7 +37,7 @@ const SinglePlace = () => {
           Max number of guests: {place.maxGuests}
         </div>
         <div>
-          {/* <BookingWidget place={place} /> */}
+          <BookingWidget place={place} />
         </div>
       </div>
       <div>
