@@ -3,7 +3,7 @@
     width: 100%;
     position: relative;
     padding: 2rem 0;
-    z-index: 2;
+    z-index: 1;
 
     .footer-left {
         width: 50%;

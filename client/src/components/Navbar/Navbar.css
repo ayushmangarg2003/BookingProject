@@ -5,7 +5,7 @@
   padding: 1rem 0;
   min-height: 15vh;
   align-items: center;
-  z-index: 3;
+  z-index: 2;
 
   .nav-left {
     width: 33%;
@@ -134,6 +134,7 @@
 @media only screen and (max-width:800px) {
 
   .navbar-parent {
+    z-index: 3;
     padding: 1rem 5px;
 
     .nav-left {

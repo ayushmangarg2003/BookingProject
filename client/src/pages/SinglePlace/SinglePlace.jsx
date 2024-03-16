@@ -3,10 +3,10 @@ import "./SinglePlace.css"
 import { useLocation } from "react-router-dom";
 import { BackendLink } from '../../components/App/App';
 import axios from 'axios';
-
+import PhotoGallery from '../../components/PhotoGallery/PhotoGallery';
 
 const SinglePlace = () => {
-  const [placeDetail, setPlaceDetail] = useState({
+  const [place, setPlace] = useState({
     photos: [],
     perks: []
   })
@@ -16,36 +16,36 @@ const SinglePlace = () => {
   useEffect(() => {
     axios.get(`${BackendLink}/places/${id}`).then(response => {
       const { data } = response;
-      setPlaceDetail(data)
+      setPlace(data)
     });
   }, []);
 
   return (
-    <>
-      <div className="images">
-        {
-          placeDetail.photos.map((item, index) => (
-            <img key={index} src={item} alt="image" />
-          ))
-        }
+    <div className='single-place-container'>
+      <h1>{place.title}</h1>
+      <div>{place.address}</div>
+      <PhotoGallery place={place} />
+      <div>
+        <div>
+          <div>
+            <h2>Description</h2>
+            {place.description}
+          </div>
+          Check-in: {place.checkIn}<br />
+          Check-out: {place.checkOut}<br />
+          Max number of guests: {place.maxGuests}
+        </div>
+        <div>
+          {/* <BookingWidget place={place} /> */}
+        </div>
       </div>
-      <div className='place-title'>{placeDetail.title}</div>
-      <div className='place-owner'>{placeDetail.owner}</div>
-      <div className='place-desc'>{placeDetail.description}</div>
-      <div className='place-address'>{placeDetail.address}</div>
-      <div className="place-perks">
-        {
-          placeDetail.perks.map((item) => (
-            <div key={item}> {item} </div>
-          ))
-        }
+      <div>
+        <div>
+          <h2 >Extra info</h2>
+        </div>
+        <div>{place.extraInfo}</div>
       </div>
-      <div className='place-checkin'>{placeDetail.checkIn}</div>
-      <div className='place-checkout'>{placeDetail.checkOut}</div>
-      <div className='place-max'>{placeDetail.maxGuests}</div>
-      <div className='place-price'>{placeDetail.price}</div>
-      <div className='place-extra'>{placeDetail.extraInfo}</div>
-    </>
+    </div>
   )
 }
 

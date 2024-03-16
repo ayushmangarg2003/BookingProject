@@ -3,7 +3,7 @@ import { useContext } from "react";
 import { UserContext } from "../../context/UserContext";
 import { Link } from 'react-router-dom';
 import "./Navbar.css"
-import { COMPANY_NAME_1, COMPANY_NAME_2, ICON, NAVLINKS } from '../../utils/data';
+import { COMPANY_NAME_1, COMPANY_NAME_2, ICON } from '../../utils/data';
 
 const Navbar = () => {
   const { user } = useContext(UserContext);
@@ -21,11 +21,8 @@ const Navbar = () => {
       </div>
       {/*  */}
       <div className={state ? "nav-center active" : "nav-center"}>
-        {
-          NAVLINKS.map((item) => (
-            <div key={item} className="navlink" onClick={handleClick} ><Link className='navlink-link' to={`/${item}`}>{item}</Link></div>
-          ))
-        }
+          <div className="navlink" onClick={handleClick} ><Link className='navlink-link' to={`/places`}>Explore</Link></div>
+          <div className="navlink" onClick={handleClick} ><Link className='navlink-link' to={`/about`}>About</Link></div>
       </div>
 
       <div className="nav-right">

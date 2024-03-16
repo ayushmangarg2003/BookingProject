@@ -3,7 +3,7 @@
     margin: auto;
     background-position: center;
     background-repeat: no-repeat;
-    background: url('../../assets/homeBG.jpg');
+    background: url('../../assets/homeBG.webp');
     min-height: 100vh;
     background-size: cover;
     display: flex;

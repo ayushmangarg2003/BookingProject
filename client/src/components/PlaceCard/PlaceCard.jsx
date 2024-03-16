@@ -10,8 +10,8 @@ const PlaceCard = (props) => {
                     <img src={props.place.photos[0]} alt="IMG" />
                 </div>
                 <div className="card-text">
-                    <h4>{props.place.title}</h4>
-                    <h2>{props.place.owner}</h2>
+                    <h4>{props.place.address}</h4>
+                    <h2>{props.place.title}</h2>
                     <p>₹ <span>{props.place.price}</span> without taxes</p>
                 </div>
             </Link>

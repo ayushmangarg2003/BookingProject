@@ -22,7 +22,7 @@ const AddProfilePlaces = () => {
   const [owner, setOwner] = useState('')
 
   const id = location.pathname.split("/")[3];
-
+  
   const getuser = async () => {
     const { user } = await useUserContext()
     setOwner(user.email)
@@ -34,8 +34,9 @@ const AddProfilePlaces = () => {
       return;
     }
     else {
-      axios.get(`${BackendLink}/places/` + id).then(response => {
+      axios.get(`${BackendLink}/places/${id}`).then(response => {
         const { data } = response;
+        console.log(data);
         // setTitle(data.title);
         // setAddress(data.address);
         // setAddedPhotos(data.photos);
@@ -113,7 +114,7 @@ const AddProfilePlaces = () => {
         <div className="input-feild">
           <h2>Extra Information</h2>
           <p>House Rules Etc</p>
-          <input value={title} placeholder='' onChange={ev => setTitle(ev.target.value)} type="text" />
+          <input value={extraInfo} onChange={ev => setExtraInfo(ev.target.value)} type="text" />
         </div>
         <div className="input-feild">
           <h2>Images</h2>
