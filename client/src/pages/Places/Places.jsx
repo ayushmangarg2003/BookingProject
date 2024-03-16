@@ -23,7 +23,7 @@ const Places = () => {
         <div className="places">
           {
             placesArray.map((item) => (
-              <PlaceCard key={item._id} place={item} />
+              <PlaceCard to={'/places'} key={item._id} place={item} />
             ))
           }
         </div >

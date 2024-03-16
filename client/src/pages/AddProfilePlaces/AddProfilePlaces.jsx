@@ -1,26 +1,27 @@
 import React, { useState, useEffect, useContext } from 'react'
 import ProfileNavbar from '../../components/ProfileNavbar/ProfileNavbar'
 import "./AddProfilePlaces.css"
-import { Navigate, useParams } from 'react-router-dom'
+import { Navigate } from 'react-router-dom'
 import { BackendLink } from '../../components/App/App'
 import axios from 'axios';
-import { UserContext } from '../../context/UserContext'
 import { useUserContext } from '../../hooks/useUserContext'
+
 const AddProfilePlaces = () => {
-  const { id } = useParams();
-  const [title, setTitle] = useState('');
-  const [address, setAddress] = useState('');
-  const [photo, setPhoto] = useState('');
+  const [title, setTitle] = useState(' ');
+  const [address, setAddress] = useState(' ');
+  const [photo, setPhoto] = useState(' ');
   const [addedPhotos, setAddedPhotos] = useState([]);
-  const [description, setDescription] = useState('');
+  const [description, setDescription] = useState(' ');
   const [perks, setPerks] = useState([]);
-  const [extraInfo, setExtraInfo] = useState('');
-  const [checkIn, setCheckIn] = useState('');
-  const [checkOut, setCheckOut] = useState('');
+  const [extraInfo, setExtraInfo] = useState(' ');
+  const [checkIn, setCheckIn] = useState(0);
+  const [checkOut, setCheckOut] = useState(0);
   const [maxGuests, setMaxGuests] = useState(1);
   const [price, setPrice] = useState(10000);
   const [redirect, setRedirect] = useState(false);
-  const [owner, setOwner] = useState("")
+  const [owner, setOwner] = useState('')
+
+  const id = location.pathname.split("/")[3];
 
   const getuser = async () => {
     const { user } = await useUserContext()
@@ -28,24 +29,25 @@ const AddProfilePlaces = () => {
   }
   getuser()
 
-
   useEffect(() => {
-    if (!id) {
+    if (id == 'new') {
       return;
     }
-    axios.get('/places/' + id).then(response => {
-      const { data } = response;
-      setTitle(data.title);
-      setAddress(data.address);
-      setAddedPhotos(data.photos);
-      setDescription(data.description);
-      setPerks(data.perks);
-      setExtraInfo(data.extraInfo);
-      setCheckIn(data.checkIn);
-      setCheckOut(data.checkOut);
-      setMaxGuests(data.maxGuests);
-      setPrice(data.price);
-    });
+    else {
+      axios.get(`${BackendLink}/places/` + id).then(response => {
+        const { data } = response;
+        // setTitle(data.title);
+        // setAddress(data.address);
+        // setAddedPhotos(data.photos);
+        // setDescription(data.description);
+        // setPerks(data.perks);
+        // setExtraInfo(data.extraInfo);
+        // setCheckIn(data.checkIn);
+        // setCheckOut(data.checkOut);
+        // setMaxGuests(data.maxGuests);
+        // setPrice(data.price);
+      });
+    }
   }, [id]);
 
   const handleCbClick = (ev) => {
@@ -69,7 +71,7 @@ const AddProfilePlaces = () => {
       checkIn, checkOut, maxGuests, price,
     };
 
-    if (id) {
+    if (id != 'new') {
       // update
       await axios.put(`${BackendLink}/places`, {
         id, ...placeData

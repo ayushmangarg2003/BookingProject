@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from 'react'
 import "./SinglePlace.css"
-import { useParams } from 'react-router-dom'
 import { useLocation } from "react-router-dom";
 import { BackendLink } from '../../components/App/App';
 import axios from 'axios';
@@ -19,7 +18,7 @@ const SinglePlace = () => {
       const { data } = response;
       setPlaceDetail(data)
     });
-  }, [placeDetail]);
+  }, []);
 
   return (
     <>

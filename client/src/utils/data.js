@@ -13,9 +13,9 @@ export const VISION = "";
 
 export const HOME_HEAD = "Stay Here and Experience FOMO Like Never Before";
 export const HOME_DESC = "We offer unique stays and experiences that make it possible for guests to connect with communities in a more authentic way."
-export const YEARS = "130+ ";
-export const HOTELS = "900+ ";
-export const SATISFACTION = "100% ";
+export const YEARS = "19+";
+export const HOTELS = "900+";
+export const SATISFACTION = "100%";
 export const HOMEBTNTEXT = "Explore Homestays";
 
 export const ICON = "fa-solid fa-hotel"

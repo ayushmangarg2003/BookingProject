@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom'
 const PlaceCard = (props) => {
     return (
         <div className="t-card">
-            <Link className='place-card-link' to={`/places/${props.place._id}`}>
+            <Link className='place-card-link' to={`${props.to}/${props.place._id}`}>
                 <div className="t-image">
                     <img src={props.place.photos[0]} alt="IMG" />
                 </div>

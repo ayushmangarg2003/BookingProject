@@ -26,7 +26,6 @@ const uploadbylink = async (req, res) => {
 }
 
 const addPlace = async (req, res) => {
-    const { token } = req.cookies;
     const {
         owner, title, address, addedPhotos, description, price,
         perks, extraInfo, checkIn, checkOut, maxGuests,
@@ -42,11 +41,11 @@ const addPlace = async (req, res) => {
 }
 
 const updatePlace = async (req, res) => {
-    const { token } = req.cookies;
     const {
-        owner, id, title, address, addedPhotos, description,
+        id, owner, title, address, addedPhotos, description,
         perks, extraInfo, checkIn, checkOut, maxGuests, price,
     } = req.body;
+    const placeDoc = await Place.findById(id);
     placeDoc.set({
         owner, title, address, photos: addedPhotos, description,
         perks, extraInfo, checkIn, checkOut, maxGuests, price,
@@ -62,6 +61,7 @@ const getUserPlaces = (req, res) => {
         const { id } = userData;
         res.json(await Place.find({ owner: id }));
     });
+    console.log("Bhaiiiii")
 }
 
 module.exports = { getAllPlaces, getPlaceByID, uploadbylink, addPlace, updatePlace, getUserPlaces }
