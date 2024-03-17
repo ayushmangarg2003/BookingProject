@@ -23,28 +23,47 @@ const SinglePlace = () => {
 
   return (
     <div className='single-place-container'>
-      <h1>{place.title}</h1>
-      <div>{place.address}</div>
-      <PhotoGallery place={place} />
-      <div>
-        <div>
-          <div>
+      <div className="top-container">
+        <h1>{place.title}</h1>
+        <p>{place.address}</p>
+        <PhotoGallery place={place} />
+      </div>
+      <div className='middle-container'>
+        <div className='middle-text'>
+          <div className='middle-desc'>
             <h2>Description</h2>
-            {place.description}
+            <p>{place.description}</p>
           </div>
-          Check-in: {place.checkIn}<br />
-          Check-out: {place.checkOut}<br />
-          Max number of guests: {place.maxGuests}
+          <div className="middle-numbers">
+            <div className='middle-num'>
+              <i className="fa-solid fa-clock"></i>
+              Check-in: {place.checkIn}
+            </div>
+            <div className='middle-num'>
+              <i className="fa-solid fa-clock"></i>
+              Check-out: {place.checkOut}
+            </div>
+            <div className='middle-num'>
+              <i className="fa-solid fa-user-group"></i>
+              Maximum guests: {place.maxGuests}
+            </div>
+          </div>
         </div>
-        <div>
+        <div className='book-widget'>
           <BookingWidget place={place} />
         </div>
       </div>
-      <div>
-        <div>
-          <h2 >Extra info</h2>
-        </div>
-        <div>{place.extraInfo}</div>
+      <div className='bottom-container'>
+        {
+          place.extraInfo ? (
+            <>
+              <div className='bottom-heading'>
+                <h2 >Extra info</h2>
+              </div>
+              <div className='bottom-text'>{place.extraInfo}</div>
+            </>
+          ) : (<div> </div>)
+        }
       </div>
     </div>
   )

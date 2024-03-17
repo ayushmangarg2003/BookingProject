@@ -1,9 +1,12 @@
-import React, { useContext, useState } from 'react'
+import React, { useState } from 'react'
 import "./BookingWidget.css"
 import { useUserContext } from '../../hooks/useUserContext';
 import axios from 'axios';
+import { differenceInCalendarDays } from "date-fns";
+
 import { BackendLink } from '../App/App';
 import { useNavigate } from 'react-router-dom';
+import "./BookingWidget.css"
 
 const BookingWidget = (props) => {
     const place = props.place
@@ -14,41 +17,50 @@ const BookingWidget = (props) => {
     const [phone, setPhone] = useState('');
     const navigate = useNavigate()
     const { user } = useUserContext()
+    const [error, setError] = useState("")
 
-    let numberOfNights = 1;
+    let numberOfNights = 0;
+    if (checkIn && checkOut) {
+        numberOfNights = differenceInCalendarDays(new Date(checkOut), new Date(checkIn));
+    }
 
     const bookThisPlace = async () => {
         const response = await axios.post(`${BackendLink}/bookings`, {
-            checkIn, checkOut, numberOfGuests, name, phone, user: user.email,
+            checkIn: checkIn, checkOut: checkOut, numberOfGuests: numberOfGuests, name: name, phone: phone, user: user.email,
             place: place._id,
             price: numberOfNights * place.price,
         });
-        const bookingId = response.data._id;
-        navigate(`/profile/bookings/${bookingId}`);
+        if (response.data.error) {
+            setError(response.data.error)
+        }
+        else {
+            const bookingId = response.data._id;
+            navigate(`/profile/bookings`);
+        }
     }
 
 
     return (
-        <div>
-            <div>
-                Price: ${place.price} / per night
+        <div className='widget-parent'>
+            <div className='widget-price'>
+                Price: ₹{place.price} / per night
             </div>
-            <div>
-                <div>
-                    <div>
+            <div className='widget-detail-parent'>
+                <div className='widget-details'>
+                    <div className='widget-check'>
                         <label>Check in:</label>
                         <input type="date"
                             value={checkIn}
                             required={true}
                             onChange={ev => setCheckIn(ev.target.value)} />
                     </div>
-                    <div>
+                    <div className='widget-check'>
                         <label>Check out:</label>
                         <input type="date" required={true} value={checkOut}
                             onChange={ev => setCheckOut(ev.target.value)} />
                     </div>
                 </div>
-                <div>
+                <div className='widget-max-guest'>
                     <label>Number of guests:</label>
                     <input type="number"
                         required={true}
@@ -56,26 +68,35 @@ const BookingWidget = (props) => {
                         onChange={ev => setNumberOfGuests(ev.target.value)} />
                 </div>
                 {numberOfNights > 0 && (
-                    <div>
-                        <label>Your full name:</label>
-                        <input type="text"
-                            required={true}
-                            value={name}
-                            onChange={ev => setName(ev.target.value)} />
-                        <label>Phone number:</label>
-                        <input type="tel"
-                            required={true}
-                            value={phone}
-                            onChange={ev => setPhone(ev.target.value)} />
+                    <div className='extra-details'>
+                        <div className='widget-extra'>
+                            <label>Your full name:</label>
+                            <input type="text"
+                                required={true}
+                                value={name}
+                                onChange={ev => setName(ev.target.value)} />
+                        </div>
+                        <div className='widget-extra'>
+                            <label>Phone number:</label>
+                            <input type="tel"
+                                required={true}
+                                value={phone}
+                                onChange={ev => setPhone(ev.target.value)} />
+                        </div>
                     </div>
                 )}
             </div>
             <button onClick={bookThisPlace}>
-                Book this place
+                Book Now at
                 {numberOfNights > 0 && (
                     <span> ${numberOfNights * place.price}</span>
                 )}
             </button>
+            <div className="error">
+                <span>
+                    {error}
+                </span>
+            </div>
         </div>)
 }
 

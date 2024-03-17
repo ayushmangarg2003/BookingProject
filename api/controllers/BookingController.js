@@ -5,21 +5,18 @@ const getBookings = async (req, res) => {
     res.json(await Booking.find());
 }
 
-
 // Add new Bookings
 const postBookings = async (req, res) => {
-    const { user } = req.body
     const {
-        place, checkIn, checkOut, numberOfGuests, name, phone, price,
+        place, user, checkIn, numberOfGuests, checkOut, name, phone, price
     } = req.body;
-    Booking.create({
-        place, checkIn, checkOut, numberOfGuests, name, phone, price,
-        user: user,
-    }).then((doc) => {
-        res.json(doc);
-    }).catch((err) => {
-        throw err;
-    });
+
+    try {
+        const booking = await Booking.book(place, user, checkIn, numberOfGuests, checkOut, name, phone, price)
+        res.status(200).json({ booking })
+    } catch (error) {
+        res.status(200).json({ error: error.message })
+    }
 }
 
 module.exports = { getBookings, postBookings }

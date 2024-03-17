@@ -1,0 +1,91 @@
+.widget-parent {
+    background-color: #fff;
+    box-shadow: 5px 10px 10px rgba(0, 0, 0, 0.2);
+    width: 100%;
+    height: 100%;
+    padding: 10px;
+    border-radius: 8px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+
+    .widget-price {
+        color: var(--black);
+        font-size: 20px;
+        font-weight: 600;
+        text-align: center;
+    }
+
+    .widget-detail-parent {
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+
+        .widget-details {
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            .widget-check {
+                border: 1px solid rgba(0, 0, 0, 0.3);
+                padding: 4px;
+                border-radius: 4px;
+                width: 50%;
+                display: flex;
+                flex-direction: column;
+                gap: 5px;
+
+                & input{
+                    border: none;
+                }
+            }
+        }
+        .widget-max-guest{
+            display: flex;
+            flex-direction: column;
+            gap: 5px;
+
+            & input{
+                border: 1px solid rgba(0, 0, 0, 0.3);
+                padding: 8px;
+                outline: none;
+                border-radius: 8px;
+            }
+        }
+        .extra-details{
+            display: flex;
+            flex-direction: column;
+            gap: 5px;
+            .widget-extra{
+                display: flex;
+                flex-direction: column;
+                gap: 5px;
+                & input{
+                    border: 1px solid rgba(0, 0, 0, 0.3);
+                    outline: none;
+                    border-radius: 8px;
+                    padding: 8px;
+                }
+            }
+        }
+    }
+
+    & button{
+        padding: 10px 0;
+        border: none;
+        background-color: var(--light-red);
+        color: var(--white);
+        font-size: 16px;
+        border-radius: 8px;
+
+        & span{
+            font-weight: 600;
+        }
+    }
+    .error {
+        display: flex;
+        justify-content: center;
+        font-size: 14px;
+        color: rgb(255, 74, 74);
+    }
+}
