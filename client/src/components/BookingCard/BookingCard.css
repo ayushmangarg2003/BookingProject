@@ -1,0 +1,112 @@
+.booking-card {
+    background-color: var(--white);
+    padding: 8px;
+    border-radius: 8px;
+    height: 175px;
+    display: flex;
+    align-items: center;
+
+    .booking-card-left {
+        width: 30%;
+        height: 100%;
+
+        & img {
+            object-fit: cover;
+            width: 100%;
+            height: 100%;
+            border-radius: 12px;
+        }
+    }
+
+    .booking-card-right {
+        width: 70%;
+        padding: 8px;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        height: 100%;
+
+        .upper-text {
+            display: flex;
+            flex-direction: column;
+            gap: 2px;
+            & h2 {
+                font-size: 20px;
+            }
+
+            & p {
+                color: var(--black-light);
+                font-style: italic;
+                font-family: var(--secondary-font);
+                text-decoration: underline;
+            }
+        }
+
+        .bottom-details{
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            font-size: 18px;
+            font-weight: 600;
+        }
+        .booking-timings {
+            display: flex;
+            align-items: center;
+            flex-wrap: wrap;
+            .timing-arrow {
+                margin: 0 10px;
+                font-size: 20px;
+            }
+        }
+    }
+}
+
+@media only screen and (max-width:500px) {
+    .booking-card {
+        flex-direction: column;
+        min-height: 450px;
+        .booking-card-left {
+            width: 100%;
+            height: 70%;
+        }
+    
+        .booking-card-right {
+            width: 100%;
+            height: 30%;
+    
+            .upper-text {
+                display: flex;
+                flex-direction: column;
+                gap: 2px;
+                & h2 {
+                    font-size: 18px;
+                }
+    
+                & p {
+                    color: var(--black-light);
+                    font-size: 14px;
+                    font-style: italic;
+                    font-family: var(--secondary-font);
+                    text-decoration: underline;
+                }
+            }
+    
+            .bottom-details{
+                display: flex;
+                justify-content: space-between;
+                flex-wrap: wrap;
+                font-size: 18px;
+                font-weight: 600;
+            }
+            .booking-timings {
+                display: flex;
+                align-items: center;
+    
+                .timing-arrow {
+                    margin: 0 10px;
+                    font-size: 20px;
+                }
+            }
+        }
+    }
+}

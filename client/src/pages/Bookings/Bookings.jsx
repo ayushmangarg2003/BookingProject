@@ -27,7 +27,7 @@ const Bookings = () => {
       <div className='profile-nav-parent'>
         <ProfileNavbar />
       </div>
-      <div>
+      <div className='booking-card-parent'>
           {
             bookingArray.filter(checkPlace).map((item, index) => (
                 <BookingCard key={index} user={item}/>           
