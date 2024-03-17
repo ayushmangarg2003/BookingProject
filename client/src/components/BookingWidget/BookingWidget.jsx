@@ -89,7 +89,7 @@ const BookingWidget = (props) => {
             <button onClick={bookThisPlace}>
                 Book Now at
                 {numberOfNights > 0 && (
-                    <span> ${numberOfNights * place.price}</span>
+                    <span> ₹{numberOfNights * place.price}</span>
                 )}
             </button>
             <div className="error">
