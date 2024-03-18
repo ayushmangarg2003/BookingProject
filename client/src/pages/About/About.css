@@ -15,13 +15,16 @@
 
     & h2 {
         font-size: 2rem;
-        color: var(--white);
+        color: var(--black);
         font-family: var(--secondary-font);
         width: 50%;
+        margin-bottom: 1rem;
+        text-decoration: underline;
+        text-decoration-color: var(--light-red) ;
     }
 
     & p {
-        color: #eee;
+        color: var(--black-light);
         font-size: 1.25rem;
         width: 50%;
     }
@@ -36,9 +39,11 @@
 
     & h2 {
         font-size: 2rem;
-        color: var(--white);
+        color: var(--black);
         font-family: var(--secondary-font);
         width: 50%;
+        text-decoration: underline;
+        text-decoration-color: var(--light-red) ;
     }
 
     .about-card-container {
@@ -49,7 +54,7 @@
 
         .about-card {
             background-color: var(--white);
-            border-radius: 8px;
+            border-radius: 4px;
             padding: 1.5rem;
             width: 30%;
             min-width: 175px;
@@ -74,10 +79,11 @@
                 font-weight: 300;
                 font-size: 20px;
             }
-
+            
             & p {
-                color: #444;
+                color: var(--black-light);
                 font-weight: 300;
+                text-align: end;
             }
         }
     }

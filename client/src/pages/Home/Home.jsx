@@ -17,8 +17,10 @@ const Home = () => {
   return (
     <div className="home-container">
       <div className="home-left">
-        <h1>{HOME_HEAD}</h1>
-        <p>{HOME_DESC}</p>
+        <div className="home-left-upper">
+          <h1>{HOME_HEAD}</h1>
+          <p>{HOME_DESC}</p>
+        </div>
         <Link className='home-btn' to={'/places'}>{HOMEBTNTEXT}</Link>
         <div className="stats">
           <div className="stat">
@@ -27,7 +29,7 @@ const Home = () => {
           </div>
           <div className="stat">
             <h2>{HOTELS}</h2>
-            <p>Hotels</p>
+            <p>Hosts</p>
           </div>
           <div className="stat">
             <h2>{SATISFACTION}</h2>

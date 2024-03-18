@@ -21,7 +21,7 @@ const About = () => {
                   <h1>{item.stat}</h1>
                   <h3>{item.desc}</h3>
                 </div>
-                <p>as of {item.date}</p>
+                <p>-{item.date}</p>
               </div>
             ))
           }

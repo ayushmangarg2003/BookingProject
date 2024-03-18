@@ -3,21 +3,28 @@
     display: flex;
     justify-content: space-between;
     padding: 2rem;
-
+    min-height: 80vh;
+    height: 80vh;
+    
     .register-left {
         width: 40%;
+        height: 100%;
         & img {
+            height: 100%;
             width: 100%;
         }
     }
-
+    
     .register-right {
         width: 60%;
+        border-radius: 4px;
         display: flex;
         flex-direction: column;
         justify-content: center;
         gap: 1.75rem;
-        padding: 2rem 4rem;
+        padding: 4rem 4rem;
+        background-color: var(--white);
+        border: none;
 
         .register-labels {
             display: flex;
@@ -57,7 +64,7 @@
             font-size: 1.75rem;
 
             & p {
-                color: var(--white);
+                color: var(--light-red);
             }
         }
 
@@ -102,10 +109,9 @@
 @media only screen and (max-width:1000px) {
     .register-parent {
         flex-direction: column-reverse;
-        justify-content: center;
-        align-items: center;
-        padding: 2rem 10rem;
-        gap: 2rem;
+        gap: 3rem;
+        padding: 1rem 0;
+        height: auto;
 
         .register-left {
             width: 100%;
@@ -123,24 +129,10 @@
     }
 }
 
-@media only screen and (max-width:800px) {
-    .register-parent {
-        padding: 3rem;
-
-        .register-right {
-            padding: 0rem;
-        }
-    }
-}
-
 /* Media Query 520px */
 @media only screen and (max-width:520px) {
     .register-parent {
-        padding: 1rem 0;
-
         .register-right {
-            padding: 0rem;
-
             & h1 {
                 font-size: 1.5rem;
             }

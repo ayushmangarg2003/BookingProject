@@ -23,3 +23,4 @@ https://booking-project-delta.vercel.app/
 - cookie-parser
 - multer
 - dotenv
+- validator 

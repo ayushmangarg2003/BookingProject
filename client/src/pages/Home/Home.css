@@ -7,27 +7,33 @@
     height: 80vh;
 
     .home-left {
-        width: 45%;
+        width: 40%;
         display: flex;
         flex-direction: column;
         gap: 2rem;
         justify-content: center;
-
+        .home-left-upper{
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+        }
         & h1 {
             font-size: 2.5rem;
             font-family: var(--wide);
             font-weight: 600;
-            color: var(--white);
+            color: var(--black);
         }
 
         & p {
-            color: var(--white);
+            color: var(--black-light);
+            font-size: 1.25rem;
+            font-weight: 300;
         }
 
         .home-btn {
             background-color: var(--light-red);
             width: auto;
-            max-width: 75%;
+            max-width: 80%;
             border-radius: 40px;
             display: flex;
             justify-content: center;
@@ -36,46 +42,56 @@
             text-decoration: none;
             font-weight: 600;
             padding: 12px;
+            font-size: 1.2rem;
             transition: var(--transition-normal);
         }
 
         .home-btn:hover {
-            background-color: #dd353d;
+            background-color: var(--dark-red);
         }
 
         .stats {
             display: flex;
-            padding: 1rem 0;
+            padding: 1rem;
             justify-content: flex-start;
-            gap: 5rem;
-            z-index: 1;
+            gap: 2rem;
             color: var(--white);
 
             .stat {
                 display: flex;
                 flex-direction: column;
                 justify-content: center;
-                scale: 1.1;
 
                 & h2 {
-                    text-decoration: underline;
+                    color: var(--black);
+                    font-weight: 600;
+                    font-size: 28px;
+                    font-family: var(--secondary-font);
+                }
+                
+                & p {
+                    text-decoration: overline;
                     text-decoration-color: var(--light-red);
                     text-decoration-thickness: 5px;
+                    font-size: 20px;
+                    font-weight: 400;
+                    text-transform: uppercase;
                 }
             }
         }
     }
 
     .home-right {
-        width: 50%;
+        width: 57.5%;
         display: flex;
         justify-content: center;
         align-items: center;
         height: 100%;
+        overflow: hidden;
+        border-radius: 0px 100px 100px 100px;
 
         .slider {
-            height: 80%;
-            background-color: red;
+            height: 100%;
             width: 100%;
 
             .slider-child {
@@ -120,11 +136,16 @@
             }
 
             .stats {
-                gap: 2rem;
-
+                gap: 1.5rem;
+                
                 .stat {
-                    align-items: center;
-                    scale: 1;
+                    text-align: center;
+                    & h2{
+                        font-size: 24px;
+                    }
+                    & p{
+                        font-size: 18px;
+                    }
                 }
             }
         }
@@ -142,6 +163,7 @@
         padding: 5px 0 5rem 0;
 
         .home-left {
+            gap: 20px;
             & h1 {
                 font-size: 2rem;
             }

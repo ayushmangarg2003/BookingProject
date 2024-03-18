@@ -27,7 +27,6 @@ const Footer = () => {
           </a>
           <a href={INSTAGRAM} target={'blank'} className='instagram'>
             <i className="fa-brands fa-square-instagram"></i>
-
           </a>
 
         </div>

@@ -2,7 +2,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    padding: 2.5rem;
+    padding: 2rem;
     
 
     .login-form {
@@ -17,18 +17,19 @@
 
         & h1 {
             display: flex;
-            gap: 10px;
-            text-decoration: underline;
-            text-decoration-color: var(--light-red);
-
+            gap: 5px;
+            font-family: var(--secondary-font);
+            font-weight: 400;
+            
             & p {
+                font-weight: 600;
+                font-style: italic;
                 color: var(--light-red);
             }
         }
 
         & input {
-            border-radius: 4px;
-            padding: 8px 12px;
+            padding: 12px 8px;
             font-size: 1rem;
             font-weight: 500;
             outline: none;

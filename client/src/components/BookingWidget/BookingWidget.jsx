@@ -79,6 +79,7 @@ const BookingWidget = (props) => {
                         <div className='widget-extra'>
                             <label>Phone number:</label>
                             <input type="tel"
+                                placeholder='+919876543210'
                                 required={true}
                                 value={phone}
                                 onChange={ev => setPhone(ev.target.value)} />

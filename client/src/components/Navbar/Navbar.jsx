@@ -21,12 +21,12 @@ const Navbar = () => {
       </div>
       {/*  */}
       <div className={state ? "nav-center active" : "nav-center"}>
-          <div className="navlink" onClick={handleClick} ><Link className='navlink-link' to={`/places`}>Explore</Link></div>
-          <div className="navlink" onClick={handleClick} ><Link className='navlink-link' to={`/about`}>About</Link></div>
+        <div className="navlink" onClick={handleClick} ><Link className='navlink-link' to={`/places`}>Explore</Link></div>
+        <div className="navlink" onClick={handleClick} ><Link className='navlink-link' to={`/about`}>About</Link></div>
       </div>
 
       <div className="nav-right">
-        
+
         {user && (
           <Link to={'./profile'} className='user-nav'>
             <div className='user-icon'><i className="fa-solid fa-user"></i></div>

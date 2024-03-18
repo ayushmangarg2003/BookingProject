@@ -3,7 +3,7 @@ export const LINKEDIN = "https://www.linkedin.com/in/ayushmangarg/";
 export const TWITTER = "https://twitter.com/AyushmanGarg4";
 export const GITHUB = "https://github.com/ayushmangarg2003";
 
-export const COMPANY_NAME_1 = "Hotels";
+export const COMPANY_NAME_1 = "HomeStays";
 export const COMPANY_NAME_2 = ".";
 export const COPYRIGHT = "Copyright @ All Rights Reserved";
 

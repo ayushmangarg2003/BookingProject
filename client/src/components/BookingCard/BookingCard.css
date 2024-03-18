@@ -5,9 +5,11 @@
     height: 175px;
     display: flex;
     align-items: center;
+    width: 75%;
+    justify-content: space-between;
 
     .booking-card-left {
-        width: 30%;
+        width: 51%;
         height: 100%;
 
         & img {
@@ -19,7 +21,7 @@
     }
 
     .booking-card-right {
-        width: 70%;
+        width: 48%;
         padding: 8px;
         display: flex;
         flex-direction: column;
@@ -30,6 +32,7 @@
             display: flex;
             flex-direction: column;
             gap: 2px;
+
             & h2 {
                 font-size: 20px;
             }
@@ -42,17 +45,19 @@
             }
         }
 
-        .bottom-details{
+        .bottom-details {
             display: flex;
             justify-content: space-between;
             flex-wrap: wrap;
             font-size: 18px;
             font-weight: 600;
         }
+
         .booking-timings {
             display: flex;
             align-items: center;
             flex-wrap: wrap;
+
             .timing-arrow {
                 margin: 0 10px;
                 font-size: 20px;
@@ -61,52 +66,62 @@
     }
 }
 
-@media only screen and (max-width:500px) {
+@media only screen and (max-width:800px) {
     .booking-card {
-        flex-direction: column;
-        min-height: 450px;
-        .booking-card-left {
+        width: 100%;
+    }
+}
+
+    @media only screen and (max-width:500px) {
+        .booking-card {
+            flex-direction: column;
+            min-height: 450px;
             width: 100%;
-            height: 70%;
-        }
-    
-        .booking-card-right {
-            width: 100%;
-            height: 30%;
-    
-            .upper-text {
-                display: flex;
-                flex-direction: column;
-                gap: 2px;
-                & h2 {
+
+            .booking-card-left {
+                width: 100%;
+                height: 70%;
+            }
+
+            .booking-card-right {
+                width: 100%;
+                height: 30%;
+
+                .upper-text {
+                    display: flex;
+                    flex-direction: column;
+                    gap: 2px;
+
+                    & h2 {
+                        font-size: 18px;
+                    }
+
+                    & p {
+                        color: var(--black-light);
+                        font-size: 14px;
+                        font-style: italic;
+                        font-family: var(--secondary-font);
+                        text-decoration: underline;
+                    }
+                }
+
+                .bottom-details {
+                    display: flex;
+                    justify-content: space-between;
+                    flex-wrap: wrap;
                     font-size: 18px;
+                    font-weight: 600;
                 }
-    
-                & p {
-                    color: var(--black-light);
-                    font-size: 14px;
-                    font-style: italic;
-                    font-family: var(--secondary-font);
-                    text-decoration: underline;
-                }
-            }
-    
-            .bottom-details{
-                display: flex;
-                justify-content: space-between;
-                flex-wrap: wrap;
-                font-size: 18px;
-                font-weight: 600;
-            }
-            .booking-timings {
-                display: flex;
-                align-items: center;
-    
-                .timing-arrow {
-                    margin: 0 10px;
-                    font-size: 20px;
+
+                .booking-timings {
+                    display: flex;
+                    align-items: center;
+
+                    .timing-arrow {
+                        margin: 0 10px;
+                        font-size: 20px;
+                    }
                 }
             }
         }
     }
-}

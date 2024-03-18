@@ -9,12 +9,13 @@
 
   .nav-left {
     width: 33%;
+
     .logo-link {
       display: flex;
       gap: 10px;
       align-items: center;
       font-family: var(--wide);
-      color: var(--white);
+      color: var(--black);
       text-decoration: none;
 
       .logo-img {
@@ -26,7 +27,7 @@
         display: flex;
         font-weight: 700;
         font-family: var(--secondary-font);
-        
+
         & p {
           font-weight: 900;
           color: var(--dark-red);
@@ -42,10 +43,10 @@
     align-items: center;
     gap: 2rem;
 
+
     :hover {
-      text-decoration: underline;
       text-decoration-color: var(--light-red);
-      text-decoration-thickness: 4px;
+      text-decoration: underline;
     }
 
     .navlink {
@@ -53,12 +54,16 @@
       gap: 5px;
       align-items: center;
       text-transform: capitalize;
+      text-decoration-color: var(--light-red);
+      transition: var(--transition-normal);
+      text-decoration-thickness: 4px;
+
 
       .navlink-link {
-        color: var(--white);
+        color: var(--black);
         text-decoration: none;
-        font-size: 1.2rem;
-        transition: var(--transition-normal);
+        font-size: 1.25rem;
+        font-weight: 300;
       }
     }
   }
@@ -100,7 +105,7 @@
     }
 
     .login-btn {
-      background-color: var(--white);
+      background-color: var(--light-red);
       padding: 8px 12px;
       border-radius: 2px;
       transition: var(--transition-normal);
@@ -109,12 +114,12 @@
       .navbar-login-link {
         text-decoration: none;
         transition: var(--transition-normal);
-        color: var(--black);
+        color: var(--white);
       }
     }
 
     .login-btn:hover {
-      background-color: var(--light-red);
+      background-color: var(--dark-red);
       color: var(--black-light);
 
       .navbar-login-link {
@@ -124,7 +129,7 @@
 
     .hamburger-icon {
       display: none;
-      color: var(--white);
+      color: var(--light-red);
       margin: 0 10px;
     }
   }
