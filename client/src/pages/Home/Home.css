@@ -130,7 +130,6 @@
         }
 
         .home-right {
-            /* width: 75%; */
             width: 100%;
         }
 
@@ -149,7 +148,6 @@
         }
 
         .home-right {
-            /* display: none; */
             width: 100%;
         }
     }
