@@ -36,7 +36,7 @@ const Home = () => {
         </div>
       </div>
       <div className="home-right">
-        <AutoplaySlider play={true} interval={3000} cancelOnInteraction={false}
+        <AutoplaySlider play={true} interval={5000} cancelOnInteraction={false}
           className='slider'>
           <div className='slider-child'>
             <img className='home-img' src={homeIMG} alt="" />
