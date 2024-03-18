@@ -3,7 +3,8 @@ import { useContext } from "react";
 import { UserContext } from "../../context/UserContext";
 import { Link } from 'react-router-dom';
 import "./Navbar.css"
-import { COMPANY_NAME_1, COMPANY_NAME_2, ICON } from '../../utils/data';
+import { COMPANY_NAME_1, COMPANY_NAME_2 } from '../../utils/data';
+import Icon from "../../assets/icon.svg"
 
 const Navbar = () => {
   const { user } = useContext(UserContext);
@@ -15,7 +16,7 @@ const Navbar = () => {
     <div className='navbar-parent'>
       <div className="nav-left">
         <Link to={'/'} className='logo-link'>
-          <div className="logo-img"><i className={ICON}></i></div>
+          <img className='logo-img' src={Icon} alt="" />
           <div className="logo-name">{COMPANY_NAME_1}<p>{COMPANY_NAME_2}</p></div>
         </Link>
       </div>

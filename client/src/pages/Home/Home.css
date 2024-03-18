@@ -7,7 +7,7 @@
     height: 80vh;
 
     .home-left {
-        width: 40%;
+        width: 45%;
         display: flex;
         flex-direction: column;
         gap: 2rem;
@@ -82,7 +82,7 @@
     }
 
     .home-right {
-        width: 57.5%;
+        width: 50%;
         display: flex;
         justify-content: center;
         align-items: center;

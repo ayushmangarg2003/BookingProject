@@ -10,7 +10,7 @@
         width: 50%;
         display: flex;
         flex-direction: column;
-        gap: 10px;
+        gap: 15px;
 
         .footer-logo {
             display: flex;
@@ -19,7 +19,7 @@
             color: #111;
 
             .footer-logo-img {
-                font-size: 2.5rem;
+                width: 50px;
             }
 
             .footer-logo-name {
@@ -38,7 +38,7 @@
         .footer-copyright {
             color: var(--black-light);
             font-size: 1rem;
-            font-style: oblique;
+            font-weight: 300;
         }
 
         .footer-socials {
@@ -50,7 +50,7 @@
             }
 
             & a {
-                font-size: 2.5rem;
+                font-size: 2.25rem;
                 transition: var(--transition-normal);
                 text-decoration: none;
                 width: 40px;
@@ -62,7 +62,7 @@
 
                 & i {
                     text-decoration: none;
-                    color: var(--black);
+                    color: #111;
                 }
 
                 :hover {
@@ -79,8 +79,8 @@
         gap: 5rem;
 
         & h1 {
-            font-size: 1.1rem;
-            font-family: var(--wide);
+            font-size: 1.25rem;
+            font-family: var(--secondary-font);
         }
 
         .quick-links {
@@ -89,17 +89,27 @@
             gap: 1rem;
             transition: var(--transition-normal);
 
-            .footer-quicklink {
-                color: var(--black-light);
+            & h1 {
                 text-decoration: none;
-                transition: var(--transition-normal);
-                text-transform: capitalize;
             }
 
-            :hover {
-                color: var(--black);
-                font-weight: 700;
+            .footer-quicklink {
+                color: var(--black-light);
+                text-decoration: underline;
+                text-decoration-color:white ;
+                transition: var(--transition-normal);
+                text-transform: capitalize;
+                font-weight: 300;
+                font-family: var(--secondary-font);
+
+                &:hover {
+                    text-decoration: underline;
+                    text-decoration-thickness: 4px;
+                    text-decoration-color: var(--light-red);
+                }
             }
+
+
         }
     }
 }

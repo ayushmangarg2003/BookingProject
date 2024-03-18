@@ -12,7 +12,7 @@ const PlaceCard = (props) => {
                 <div className="card-text">
                     <h4>{props.place.address}</h4>
                     <h2>{props.place.title}</h2>
-                    <p>₹ <span>{props.place.price}</span> without taxes</p>
+                    <p>₹<span>{props.place.price} </span> without taxes</p>
                 </div>
             </Link>
         </div>

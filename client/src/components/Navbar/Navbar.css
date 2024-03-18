@@ -19,7 +19,7 @@
       text-decoration: none;
 
       .logo-img {
-        font-size: 2.25rem;
+        width: 50px;
       }
 
       .logo-name {
@@ -146,11 +146,11 @@
     .nav-left {
       .logo-link {
         .logo-img {
-          font-size: 2rem;
+          width: 40px;
         }
 
         .logo-name {
-          font-size: 1.5rem;
+          font-size: 1.25rem;
         }
       }
     }
@@ -174,6 +174,15 @@
     }
 
     .nav-right {
+      .user-nav{
+        .user-icon{
+          margin: 3px;
+          & i{ 
+            font-size: 0.9rem;
+            padding: 6px;
+          }
+        }
+      }
       .hamburger-icon {
         display: block;
         font-size: 1.5rem;

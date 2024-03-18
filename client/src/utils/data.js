@@ -16,7 +16,6 @@ export const HOTELS = "900+";
 export const SATISFACTION = "100%";
 export const HOMEBTNTEXT = "Explore Homestays";
 
-export const ICON = "fa-solid fa-hotel"
 export const NAVLINKS = ['places', 'about']
 
 export const FACT_CARDS = [

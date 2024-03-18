@@ -21,6 +21,7 @@
   --light-red: #f34b54;
   --green: rgb(78, 134, 77);
   --blue: #00ADB5;
+  --box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
   --single-shadow: 5px 5px 10px rgba(0, 0, 0, 0.19);
   --double-shadow: 5px 5px 10px rgba(0, 0, 0, 0.19), -5px -5px 10px rgba(0, 0, 0, 0.19);
   --transition-normal: 0.3s ease;
