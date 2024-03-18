@@ -21,6 +21,7 @@
             & button {
                 background-color: var(--light-red);
                 color: var(--white);
+                cursor: pointer;
                 width: 50px;
             }
         }
@@ -92,7 +93,7 @@
             & button{
                 width: 35%;
                 overflow: hidden;
-
+                cursor: pointer;
             }
         }
     }

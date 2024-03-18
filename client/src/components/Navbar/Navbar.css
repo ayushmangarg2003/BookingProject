@@ -22,13 +22,14 @@
       }
 
       .logo-name {
-        font-size: 1.75rem;
+        font-size: 2rem;
         display: flex;
-        font-weight: 600;
-
+        font-weight: 700;
+        font-family: var(--secondary-font);
+        
         & p {
-          color: var(--light-red);
-          font-weight: 700;
+          font-weight: 900;
+          color: var(--dark-red);
         }
       }
     }

@@ -15,6 +15,9 @@ bookingSchema.statics.book = async function (place, user, checkIn, numberOfGuest
   // if (!place || !user || !price) {
     // throw Error('All fields must be filled')
   // }
+  if (!user) {
+    throw Error('Register or Login')
+  }
   if (!checkIn) {
     throw Error('Enter CheckIn Date')
   }

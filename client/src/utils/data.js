@@ -3,8 +3,8 @@ export const LINKEDIN = "https://www.linkedin.com/in/ayushmangarg/";
 export const TWITTER = "https://twitter.com/AyushmanGarg4";
 export const GITHUB = "https://github.com/ayushmangarg2003";
 
-export const COMPANY_NAME_1 = "Home";
-export const COMPANY_NAME_2 = "Stays";
+export const COMPANY_NAME_1 = "Hotels";
+export const COMPANY_NAME_2 = ".";
 export const COPYRIGHT = "Copyright @ All Rights Reserved";
 
 export const ABOUT = "HomeStays was born in 2005 when two Hosts welcomed three guests to their Delhi home, and has since grown to over 3700 Hosts who have welcomed over 100k+ guest arrivals in almost every country across the globe. Every day, Hosts offer unique stays and experiences that make it possible for guests to connect with communities in a more authentic way. We offer unique stays and experiences that make it possible for guests to connect with communities in a more authentic way";

@@ -17,7 +17,7 @@
   --black: #222831;
   --black-light: #393E46;
   --white: #fff;
-  --dark-red:#d0353d;
+  --dark-red: #b22d34;
   --light-red: #f34b54;
   --green: rgb(78, 134, 77);
   --blue: #00ADB5;
@@ -25,4 +25,3 @@
   --double-shadow: 5px 5px 10px rgba(0, 0, 0, 0.19), -5px -5px 10px rgba(0, 0, 0, 0.19);
   --transition-normal: 0.3s ease;
 }
-
