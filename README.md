@@ -9,6 +9,8 @@ https://booking-project-delta.vercel.app/
 ## Frontend
 - react-router-dom
 - axios
+- date-fns
+- react-awesome-slider
 - react-shimmer-effects-18
 
 ## Backend
