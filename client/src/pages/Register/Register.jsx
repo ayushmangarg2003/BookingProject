@@ -12,8 +12,6 @@ const Register = () => {
 
   const { register, error } = useRegister()
 
-  // const navigate = useNavigate()
-
   const handelSubmit = async (e) => {
     e.preventDefault()
     await register(name, email, password)

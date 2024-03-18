@@ -41,7 +41,7 @@ export const FACT_CARDS = [
         date: "January 1st 2024"
     },
     {
-        stat: "$200B+",
+        stat: "₹20B+",
         desc: "Earned By Hosts ",
         date: "January 1st 2024"
     },
