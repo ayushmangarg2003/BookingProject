@@ -1,7 +1,7 @@
 // Imports
 const express = require('express');
 const multer = require('multer');
-const { getAllPlaces, getPlaceByID, addPlace, updatePlace, uploadbylink } = require('../controllers/PlaceController');
+const { getAllPlaces, getPlaceByID, addPlace, updatePlace, uploadbylink } = require('../controllers/PlaceController.js');
 
 // Router Setup
 const router = express.Router();

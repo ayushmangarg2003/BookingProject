@@ -14,7 +14,7 @@ export const useRegister = () => {
         const user = { name, email, password }
         try {
             await axios.post(`${BackendLink}/user/register`, user)
-            navigate('/')
+            navigate('/verify')
             localStorage.setItem('user', JSON.stringify(user))
             dispatch({ type: 'LOGIN', payload: {name, email} })
         } catch (error) {

@@ -17,10 +17,11 @@ import About from "../../pages/About/About"
 import Contact from "../../pages/Contact/Contact"
 import { UserContextProvider } from "../../context/UserContext";
 import "./App.css"
+import OTPVerify from '../../pages/OTPVerify/OTPVerify';
 
 
-// export const BackendLink = 'http://localhost:4000/api'
-export const BackendLink = 'https://bookingprojectbackend.onrender.com/api'
+export const BackendLink = 'http://localhost:4000/api'
+// export const BackendLink = 'https://bookingprojectbackend.onrender.com/api'
 
 const App = () => {
   return (
@@ -33,6 +34,7 @@ const App = () => {
               <Route path="/" element={<Home />} />
               <Route path="/login" element={<Login />} />
               <Route path="/register" element={<Register />} />
+              <Route path="/verify" element={<OTPVerify />} />
               <Route path="/profile" element={<Profile />} />
               <Route path="/profile/places" element={<ProfilePlaces />} />
               <Route path="/profile/places/new" element={<AddProfilePlaces />} />

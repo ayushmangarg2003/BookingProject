@@ -1,7 +1,6 @@
 import React, { useState } from 'react'
 import RegisterIMG from "../../assets/signup.gif"
 import { Link } from 'react-router-dom'
-import { useNavigate } from 'react-router-dom'
 import './Register.css'
 import { useRegister } from "../../hooks/useRegister"
 
