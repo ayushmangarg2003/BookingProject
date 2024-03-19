@@ -1,6 +1,7 @@
 /* Register Page */
 .register-parent {
     display: flex;
+    flex-direction: row-reverse;
     justify-content: space-between;
     padding: 2rem;
     min-height: 80vh;

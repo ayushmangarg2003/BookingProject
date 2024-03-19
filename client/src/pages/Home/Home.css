@@ -177,6 +177,7 @@
 
         .home-right {
             width: 100%;
+            border-radius: 2px 50px 50px 50px;
         }
     }
 }

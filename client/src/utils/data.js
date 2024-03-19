@@ -7,9 +7,9 @@ export const COMPANY_NAME_1 = "HomeStays";
 export const COMPANY_NAME_2 = ".";
 export const COPYRIGHT = "Copyright @ All Rights Reserved";
 
-export const ABOUT = "HomeStays was born in 2005 when two Hosts welcomed three guests to their Delhi home, and has since grown to over 3700 Hosts who have welcomed over 100k+ guest arrivals in almost every country across the globe. Every day, Hosts offer unique stays and experiences that make it possible for guests to connect with communities in a more authentic way. We offer unique stays and experiences that make it possible for guests to connect with communities in a more authentic way";
+export const ABOUT = "At HomeStays, we believe that every journey deserves the perfect place to call home. Founded with a passion for connecting travelers with unique and welcoming accommodations, our platform offers a diverse range of properties to suit every taste and budget. Whether you're seeking a cozy cottage in the countryside, a chic urban apartment, or a beachfront villa with breathtaking views, HomeStays is here to help you find the ideal stay for your next adventure. With a commitment to exceptional customer service, safety, and convenience, we strive to make every booking experience seamless and memorable. Welcome to HomeStays, where comfort, convenience, and hospitality converge to create unforgettable travel experiences.";
 
-export const HOME_HEAD = "Stay Here and Experience Life Like Never Before";
+export const HOME_HEAD = "Discover the Perfect Stay with HomeStays";
 export const HOME_DESC = "We offer unique stays and experiences that make it possible for guests to connect with communities in a more authentic way."
 export const YEARS = "19+";
 export const HOTELS = "900+";

@@ -40,18 +40,10 @@ const Home = () => {
       <div className="home-right">
         <AutoplaySlider play={true} interval={5000} cancelOnInteraction={false}
           className='slider'>
-          <div className='slider-child'>
-            <img className='home-img' src={homeIMG} alt="" />
-          </div>
-          <div className='slider-child'>
-            <img className='home-img' src={homeIMG2} alt="" />
-          </div>
-          <div className='slider-child'>
-            <img className='home-img' src={homeIMG3} alt="" />
-          </div>
-          <div className='slider-child'>
-            <img className='home-img' src={homeIMG4} alt="" />
-          </div>
+          <div data-src={homeIMG} className='slider-child' />
+          <div data-src={homeIMG2} className='slider-child' />
+          <div data-src={homeIMG3} className='slider-child' />
+          <div data-src={homeIMG4} className='slider-child' />
         </AutoplaySlider>
       </div>
     </div>

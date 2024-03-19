@@ -3,6 +3,7 @@ import "./Login.css"
 import { useNavigate, Link } from 'react-router-dom'
 import { UserContext } from '../../context/UserContext'
 import { useLogin } from '../../hooks/useLogin';
+import LoginImg from "../../assets/login.svg"
 
 
 const Login = () => {
@@ -21,6 +22,9 @@ const Login = () => {
   }
   return (
     <div className="login-parent">
+      <div className="login-left">
+        <img src={LoginImg} alt="" />
+      </div>
       <div className="login-form">
         <h1>Hello! <p>Welcome</p> Back</h1>
         <input onChange={(e) => setEmail(e.target.value)} name='email' value={email} type="text" placeholder='Enter Email' />

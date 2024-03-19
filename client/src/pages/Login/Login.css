@@ -1,9 +1,18 @@
 .login-parent {
     display: flex;
     justify-content: center;
+    gap: 2rem;
     align-items: center;
     padding: 2rem;
     min-height: 80vh;
+    .login-left{
+        width: 50%;
+        display: flex;
+        justify-content: start;
+        & img{
+            width: 90%;
+        }
+    }
     
     .login-form {
         background-color: var(--white);
@@ -71,6 +80,13 @@
 
 @media only screen and (max-width:800px) {
     .login-parent {
+        flex-direction: column-reverse;
+        .login-left{
+            width: 100%;
+            & img{
+                width: 90%;
+            }
+        }
         .login-form {
             width: 100%;
         }
