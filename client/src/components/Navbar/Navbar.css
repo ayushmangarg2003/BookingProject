@@ -3,16 +3,16 @@
   display: flex;
   justify-content: space-between;
   padding: 1rem;
-  min-height: 15vh;
+  min-height: 10vh;
   align-items: center;
   z-index: 3;
   position: fixed;
   width: 95%;
   align-self: center;
   background-color: rgba(255, 255, 255, 0.95);
-  top: 20px;
+  top: 16px;
   border-radius: 12px;
-  box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+  box-shadow: rgba(99, 99, 99, 0.3) 0px 1px 10px 2px;
 
   .nav-left {
     width: 33%;
@@ -147,7 +147,7 @@
 
   .navbar-parent {
     z-index: 3;
-    padding: 1rem 5px;
+    padding: 5px 10px;
 
 
     .nav-left {
