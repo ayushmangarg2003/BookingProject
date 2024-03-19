@@ -2,10 +2,17 @@
 .navbar-parent {
   display: flex;
   justify-content: space-between;
-  padding: 1rem 0;
+  padding: 1rem;
   min-height: 15vh;
   align-items: center;
-  z-index: 2;
+  z-index: 3;
+  position: fixed;
+  width: 95%;
+  align-self: center;
+  background-color: rgba(255, 255, 255, 0.95);
+  top: 20px;
+  border-radius: 12px;
+  box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
 
   .nav-left {
     width: 33%;
@@ -42,7 +49,7 @@
     justify-content: center;
     align-items: center;
     gap: 2rem;
-
+    transition: 0.3s ease;
 
     :hover {
       text-decoration-color: var(--light-red);
@@ -142,6 +149,7 @@
     z-index: 3;
     padding: 1rem 5px;
 
+
     .nav-left {
       .logo-link {
         .logo-img {
@@ -158,44 +166,42 @@
     .nav-center {
       flex-direction: column;
       position: absolute;
-      top: 0;
-      width: 50%;
-      left: -100%;
+      top: -100vh;
+      left: 0;
+      width: 100%;
       opacity: 0;
-      height: 100%;
-      transition: var(--normal);
+      height: 50vh;
+      transition: 1s ease;
       background-color: var(--white);
+      border-radius: 12px;
+      align-self: center;
       box-shadow: 50px 0px 100vw rgba(0, 0, 0, 1);
 
-      .navlink{
-        .navlink-link{
+      .navlink {
+        .navlink-link {
           color: var(--black);
         }
       }
     }
-    .nav-center::after{
-      content: "";
-      width: 100%;
-      height: 100%;
-      background-color: rgba(255, 0, 0, 0.2);
-      position: absolute;
-      left: 100%;
-    }
     .nav-center.active {
       opacity: 1;
-      left: 0;
+      transition: var(--transition-normal);
+      transition: 1s ease;
+      top: 0;
     }
 
     .nav-right {
-      .user-nav{
-        .user-icon{
+      .user-nav {
+        .user-icon {
           margin: 3px;
-          & i{ 
+
+          & i {
             font-size: 0.9rem;
             padding: 6px;
           }
         }
       }
+
       .hamburger-icon {
         display: block;
         font-size: 1.5rem;

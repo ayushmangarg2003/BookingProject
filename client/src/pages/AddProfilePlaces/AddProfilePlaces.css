@@ -1,3 +1,6 @@
+.place-form-container{
+    padding: 2rem 0;
+}
 .form {
     padding: 2rem;
     display: flex;

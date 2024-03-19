@@ -1,5 +1,6 @@
 .places{
     display: flex;
+    padding: 2rem 0;
     justify-content: center;
     gap: 0 25px;
     width: 100%;

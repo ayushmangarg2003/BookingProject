@@ -80,7 +80,7 @@ const AddProfilePlaces = () => {
 
 
   return (
-    <>
+    <div className='place-form-container'>
       <div className='profile-nav-parent'>
         <ProfileNavbar />
       </div>
@@ -194,11 +194,11 @@ const AddProfilePlaces = () => {
 
 
 
-        <div className="submit-form" onClick={handelSubmit}>
+        <div className="submit-form" onClick={handelSubmit} >
           Save
         </div>
       </div>
-    </>
+    </div>
 
   )
 }

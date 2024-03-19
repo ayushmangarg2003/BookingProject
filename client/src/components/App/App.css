@@ -1,11 +1,11 @@
 .app {
-    padding: 0rem 2rem;
+    padding: 8rem 2rem 0rem 2rem;
     margin: auto;
     background-color: #fff;
     min-height: 100vh;
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
+    justify-content: center;
 }
 
 .app-container {
@@ -15,6 +15,6 @@
 
 @media only screen and (max-width:520px) {
     .app{
-        padding: 0rem 10px;
+        padding: 8rem 10px 0rem 10px;
     }
 }

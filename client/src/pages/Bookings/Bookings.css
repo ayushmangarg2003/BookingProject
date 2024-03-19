@@ -1,3 +1,7 @@
+.bookings{
+    padding: 2rem 0;
+}
+
 .booking-card-parent {
     display: flex;
     flex-direction: column;

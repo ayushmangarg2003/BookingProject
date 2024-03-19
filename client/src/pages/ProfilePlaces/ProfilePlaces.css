@@ -1,3 +1,7 @@
+.profile-places{
+    padding: 2rem 0;
+}
+
 .profile-places-parent {
     display: flex;
     justify-content: center;
