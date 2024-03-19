@@ -7,27 +7,30 @@
     height: 80vh;
 
     .home-left {
-        width: 45%;
+        width: 50%;
+        padding: 10px;
         display: flex;
         flex-direction: column;
         gap: 2rem;
         justify-content: center;
-        .home-left-upper{
+
+        .home-left-upper {
             display: flex;
             flex-direction: column;
             gap: 0.5rem;
         }
+
         & h1 {
             font-size: 2.5rem;
             font-family: var(--wide);
             font-weight: 600;
+            font-family: var(--secondary-font);
             color: var(--black);
         }
 
         & p {
             color: var(--black-light);
             font-size: 1.25rem;
-            font-weight: 300;
         }
 
         .home-btn {
@@ -41,6 +44,7 @@
             color: var(--white);
             text-decoration: none;
             font-weight: 600;
+            font-family: var(--secondary-font);
             padding: 12px;
             font-size: 1.2rem;
             transition: var(--transition-normal);
@@ -68,13 +72,12 @@
                     font-size: 28px;
                     font-family: var(--secondary-font);
                 }
-                
+
                 & p {
                     text-decoration: overline;
                     text-decoration-color: var(--light-red);
                     text-decoration-thickness: 5px;
                     font-size: 20px;
-                    font-weight: 400;
                     text-transform: uppercase;
                 }
             }
@@ -126,7 +129,7 @@
 
             & h1 {
                 font-size: 2.5rem;
-                font-family: var(--wide);
+                font-family: var(--secondary-font);
                 font-weight: 600;
                 text-align: center;
             }
@@ -136,15 +139,17 @@
             }
 
             .stats {
-                gap: 1.5rem;
-                
+                gap: 1.25rem;
+
                 .stat {
                     text-align: center;
-                    & h2{
-                        font-size: 24px;
+
+                    & h2 {
+                        font-size: 22px;
                     }
-                    & p{
-                        font-size: 18px;
+
+                    & p {
+                        font-size: 16px;
                     }
                 }
             }
@@ -164,6 +169,7 @@
 
         .home-left {
             gap: 20px;
+
             & h1 {
                 font-size: 2rem;
             }

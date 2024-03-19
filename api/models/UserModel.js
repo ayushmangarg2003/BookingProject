@@ -14,7 +14,10 @@ UserSchema.statics.register = async function (name, email, password) {
     throw Error('All fields must be filled')
   }
   if (!validator.isEmail(email)) {
-    throw Error('Email Invalid')
+    throw Error('Enter a valid Email')
+  }
+  if (!validator.isStrongPassword(password, { minLength: 8, minNumbers: 1, minUppercase: 1, minLowercase: 1, minSymbols: 0 })) {
+    throw Error('Enter a Strong Password (min-lenght=8, uppercase=1,lowercase=1, numbers=1)')
   }
 
   const exists = await this.findOne({ email })

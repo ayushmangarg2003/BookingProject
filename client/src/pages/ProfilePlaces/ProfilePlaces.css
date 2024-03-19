@@ -1,11 +1,11 @@
-.profile-places-parent{
+.profile-places-parent {
     display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: column;
     padding: 2rem 0;
 
-    .add-btn{
+    .add-btn {
         background-color: var(--light-red);
         color: var(--white);
         padding: 8px 16px;
@@ -18,16 +18,35 @@
         gap: 8px;
         align-items: baseline;
 
-        &:hover{
+        &:hover {
             background-color: var(--dark-red);
         }
     }
+
 }
 
-.my-places{
+.my-places {
     display: flex;
     justify-content: center;
     align-items: center;
     flex-wrap: wrap;
     gap: 20px;
+
+    .no-data-found {
+        padding: 5rem 0;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 50px;
+
+        & h2 {
+            font-family: var(--secondary-font);
+            font-weight: 600;
+        }
+
+        & img {
+            max-width: 300px;
+        }
+    }
 }

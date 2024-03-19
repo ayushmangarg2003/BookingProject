@@ -29,7 +29,7 @@ const ProfileNavbar = () => {
             </Link>
             <Link className={linkClasses('places')} to={'/profile/places'}>
                 <i className="fa-regular fa-building"></i>
-                Accommodations
+                My Places
             </Link>
         </nav>)
 }

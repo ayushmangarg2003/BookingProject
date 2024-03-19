@@ -24,6 +24,7 @@ const Navbar = () => {
       <div className={state ? "nav-center active" : "nav-center"}>
         <div className="navlink" onClick={handleClick} ><Link className='navlink-link' to={`/places`}>Explore</Link></div>
         <div className="navlink" onClick={handleClick} ><Link className='navlink-link' to={`/about`}>About</Link></div>
+        <div className="navlink" onClick={handleClick} ><Link className='navlink-link' to={`/contact`}>Contact</Link></div>
       </div>
 
       <div className="nav-right">

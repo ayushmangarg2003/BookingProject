@@ -14,6 +14,7 @@ import SinglePlace from '../../pages/SinglePlace/SinglePlace';
 import Bookings from '../../pages/Bookings/Bookings';
 import Places from '../../pages/Places/Places';
 import About from "../../pages/About/About"
+import Contact from "../../pages/Contact/Contact"
 import { UserContextProvider } from "../../context/UserContext";
 import "./App.css"
 
@@ -40,6 +41,7 @@ const App = () => {
               <Route path="/profile/bookings" element={<Bookings />} />
               <Route path="/places" element={<Places />} />
               <Route path="/about" element={<About />} />
+              <Route path="/contact" element={<Contact />} />
             </Routes>
           </div>
           <Footer />

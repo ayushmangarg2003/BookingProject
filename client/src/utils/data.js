@@ -13,7 +13,7 @@ export const HOME_HEAD = "Stay Here and Experience Life Like Never Before";
 export const HOME_DESC = "We offer unique stays and experiences that make it possible for guests to connect with communities in a more authentic way."
 export const YEARS = "19+";
 export const HOTELS = "900+";
-export const SATISFACTION = "100%";
+export const DELIGHT = "100%";
 export const HOMEBTNTEXT = "Explore Homestays";
 
 export const NAVLINKS = ['places', 'about']

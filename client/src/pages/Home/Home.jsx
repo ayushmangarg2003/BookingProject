@@ -1,6 +1,6 @@
 import React from 'react'
 import { Link } from "react-router-dom"
-import { HOTELS, HOME_DESC, HOME_HEAD, SATISFACTION, YEARS, HOMEBTNTEXT } from '../../utils/data'
+import { HOTELS, HOME_DESC, HOME_HEAD, DELIGHT, YEARS, HOMEBTNTEXT } from '../../utils/data'
 import homeIMG from "../../assets/homeIMG.webp"
 import homeIMG2 from "../../assets/1.webp"
 import homeIMG3 from "../../assets/2.webp"
@@ -32,8 +32,8 @@ const Home = () => {
             <p>Hosts</p>
           </div>
           <div className="stat">
-            <h2>{SATISFACTION}</h2>
-            <p>Satisfaction</p>
+            <h2>{DELIGHT}</h2>
+            <p>delight</p>
           </div>
         </div>
       </div>

@@ -6,9 +6,11 @@ import axios from 'axios';
 import { BackendLink } from '../../components/App/App';
 import PlaceCard from '../../components/PlaceCard/PlaceCard';
 import { useUserContext } from '../../hooks/useUserContext';
+import noPlace from "../../assets/noPlaces.svg"
 
 const ProfilePlaces = () => {
   const { user } = useUserContext()
+  const [empty, setEmpty] = useState(true)
 
   const [placesArray, setPlacesArray] = useState([])
 
@@ -17,7 +19,12 @@ const ProfilePlaces = () => {
       const { data } = response;
       setPlacesArray(data)
     });
-  }, []);
+
+    if (placesArray.filter(checkPlace).length > 0) {
+      setEmpty(false)
+    }
+
+  }, [placesArray]);
 
   const checkPlace = (place) => {
     return place.owner == user.email
@@ -36,10 +43,19 @@ const ProfilePlaces = () => {
       </div>
       <div className="my-places">
         {
-          placesArray.filter(checkPlace).map((item) => (
-            <PlaceCard to={'/places'} key={item._id} place={item} />
-          ))
+          empty ? (
+            <div className='no-data-found'>
+              <img src={noPlace} alt="Nothing Here Yet" />
+              <h2>Nothing Here Yet</h2>
+            </div>
+          ) : (
+
+            placesArray.filter(checkPlace).map((item) => (
+              <PlaceCard to={'/places'} key={item._id} place={item} />
+            ))
+          )
         }
+
       </div>
     </div>)
 }

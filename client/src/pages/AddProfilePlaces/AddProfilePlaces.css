@@ -4,16 +4,25 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    gap: 15px;
+    gap: 10px;
+
+    .form-top {
+        display: flex;
+        width: 100%;
+        gap: 10px;
+    }
 
     .input-feild {
         width: 100%;
+        border: 1px solid rgba(0, 0, 0, 0.2);
+        box-shadow: var(--box-shadow);
+        padding: 10px;
 
         & h2 {
             font-size: 1.75rem;
             font-family: var(--secondary-font);
-            font-weight: 500;
             color: #111;
+            font-weight: 600;
         }
 
         & p {
@@ -27,7 +36,8 @@
             font-size: 1rem;
             padding: 10px;
             border-radius: 4px;
-            border: none;
+            /* border: none; */
+            border: 1px solid rgba(0, 0, 0, 0.1);
             outline: none;
         }
 
@@ -58,6 +68,7 @@
                 display: flex;
                 width: 120px;
                 gap: 8px;
+
                 & input {
                     scale: 1.75;
                     width: auto;
@@ -66,23 +77,21 @@
             }
         }
 
-        .number-inputs{
+        .number-inputs {
             display: flex;
             gap: 20px;
             flex-wrap: wrap;
-            & input{
-                min-width: 140px;
-                width: 300px;
-            }
 
         }
-        .img-span-parent{
+
+        .img-span-parent {
             display: flex;
             flex-wrap: wrap;
             gap: 10px;
             padding: 10px 0;
         }
-        .img-span{
+
+        .img-span {
             display: block;
             width: auto;
             max-width: 250px;
@@ -90,7 +99,7 @@
         }
     }
 
-    .submit-form{
+    .submit-form {
         width: 100%;
         display: flex;
         justify-content: center;
@@ -98,17 +107,19 @@
         padding: 10px;
         border-radius: 4px;
         color: var(--white);
+        font-family: var(--secondary-font);
         font-weight: 600;
         margin: 10px 0;
         cursor: pointer;
         transition: 0.3s ease;
-         &:hover{
+
+        &:hover {
             background-color: var(--dark-red);
-         }
+        }
     }
 }
 
-@media only screen and (max-width:520px) {
+@media only screen and (max-width:800px) {
     .form {
         padding: 2rem 0;
 
@@ -120,6 +131,12 @@
             & input {
                 font-size: 0.9rem;
             }
+        }
+        .form-top {
+            display: flex;
+            flex-direction: column;
+            width: 100%;
+            gap: 10px;
         }
     }
 }

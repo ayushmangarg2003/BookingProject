@@ -25,12 +25,13 @@
             .footer-logo-name {
                 display: flex;
                 font-size: 1.75rem;
-                font-weight: 700;
                 font-family: var(--secondary-font);
-
+                font-weight: 600;
+                
                 & p {
                     color: var(--light-red);
-                    font-weight: 700;
+                    font-family: var(--secondary-font);
+                    font-weight: 900;
                 }
             }
         }
@@ -38,7 +39,6 @@
         .footer-copyright {
             color: var(--black-light);
             font-size: 1rem;
-            font-weight: 300;
         }
 
         .footer-socials {
@@ -81,6 +81,7 @@
         & h1 {
             font-size: 1.25rem;
             font-family: var(--secondary-font);
+            font-weight: 600;
         }
 
         .quick-links {
@@ -99,7 +100,6 @@
                 text-decoration-color:white ;
                 transition: var(--transition-normal);
                 text-transform: capitalize;
-                font-weight: 300;
                 font-family: var(--secondary-font);
 
                 &:hover {

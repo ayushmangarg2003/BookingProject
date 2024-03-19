@@ -17,6 +17,7 @@
         align-items: center;
         gap: 5px;
         font-weight: 600;
+        font-family: var(--secondary-font);
         padding: 10px;
         border-radius: 33px;
         transition: var(--transition-normal);
@@ -41,11 +42,10 @@
 
 @media only screen and (max-width:550px) {
     .profile-navbar {
-        gap: 8px;
-        padding: 4px;
+        padding: 2px;
+        gap: 0;
 
         & a {
-            font-weight: 300;
             padding: 8px;
             border-radius: 33px;
             font-size: 12px;

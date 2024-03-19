@@ -18,6 +18,7 @@
         font-size: 2rem;
         color: var(--black);
         font-family: var(--secondary-font);
+        font-weight: 600;
         width: 50%;
         margin-bottom: 1rem;
         text-decoration: underline;
@@ -41,6 +42,7 @@
     & h2 {
         font-size: 2rem;
         color: var(--black);
+        font-weight: 600;
         font-family: var(--secondary-font);
         width: 50%;
         text-decoration: underline;
@@ -56,7 +58,7 @@
         .about-card {
             background-color: var(--white);
             border-radius: 4px;
-            padding: 1.5rem;
+            padding: 1.25rem;
             width: 30%;
             min-width: 175px;
             min-height: 200px;
@@ -73,17 +75,15 @@
             & h1 {
                 font-size: 2.75rem;
                 font-family: var(--secondary-font);
-                font-weight: 500;
+                font-weight: 600;
             }
 
             & h3 {
-                font-weight: 300;
                 font-size: 20px;
             }
             
             & p {
                 color: var(--black-light);
-                font-weight: 300;
                 text-align: end;
             }
         }
@@ -136,6 +136,9 @@
         .about-card-container {
             width: 100%;
             justify-content: center;
+            .about-card{
+                width: 90%;
+            }
         }
     }
 }

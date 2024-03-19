@@ -40,6 +40,7 @@
     & h4 {
         font-size: 18px;
         font-family: var(--secondary-font);
+        font-weight: 600;
         display: -webkit-box;
         -webkit-line-clamp: 1;
         -webkit-box-orient: vertical;
@@ -47,18 +48,14 @@
     }
 
     & h2 {
-        font-size: 14px;
-        font-weight: 500;
-        font-style: italic;
+        font-size: 16px;
+        /* font-style: italic; */
         color: var(--black-light);
         margin: 0 0 10px 0;
-        font-family: var(--secondary-font);
     }
 
     & p {
         text-decoration: underline;
-        font-weight: 300;
-        /* display: flex; */
         align-items: center;
         & span {
             font-weight: 600;

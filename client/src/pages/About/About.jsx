@@ -1,11 +1,12 @@
 import React from 'react'
 import "./About.css"
 import { ABOUT, FACT_CARDS } from '../../utils/data'
+import Animation from '../../components/Animation/Animation'
 
 const About = () => {
   return (
     <div className="about-page">
-
+      <Animation/>
       <div className="about">
         <h2> About us</h2>
         <p>{ABOUT}</p>
