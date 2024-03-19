@@ -12,6 +12,8 @@ https://booking-project-delta.vercel.app/
 - date-fns
 - react-awesome-slider
 - react-shimmer-effects-18
+- @emailjs/browser
+- react-toastify
 
 ## Backend
 - express
