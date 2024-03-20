@@ -50,9 +50,7 @@ const getProfile = async (req, res) => {
 
 // EMAIL Provider
 let transporter = nodemailer.createTransport({
-    host: process.env.MAIL_HOST,
-    port: process.env.MAIL_PORT,
-    secure: false,
+    service:"Gmail",
     auth: {
         user: process.env.EMAIL,
         pass: process.env.PASS,
