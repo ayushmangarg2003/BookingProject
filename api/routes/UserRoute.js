@@ -13,7 +13,7 @@ router.post('/register', registerUser);
 router.post('/login', loginUser);
 
 // Get Profile
-router.get('/profile', getProfile);
+router.post('/profile', getProfile);
 
 // Verify OTP
 router.post('/verifyOTP', verifyOTP)

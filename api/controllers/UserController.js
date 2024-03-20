@@ -40,9 +40,11 @@ const loginUser = async (req, res) => {
 
 // Get user profile
 const getProfile = async (req, res) => {
-    const { name, email, _id } = await User.findOne({ email: email });
-    if (name || email) {
-        res.json({ name, email, _id });
+    const { email } = req.body 
+    const user = await User.findOne({ email: email });
+    console.log("USER", user);
+    if (user.email) {
+        res.json(user);
     } else {
         res.json(null);
     }
@@ -118,7 +120,7 @@ const verifyOTP = async (req, res) => {
                 const hashedOTP = UserVerificationRecord[0].otp
 
                 if (expiresAt < Date.now()) {
-                    UserOTPverification.deleteMany({ userId });
+                    UserOTPverification.deleteMany({ userId : userId });
                     throw new Error("OTP has Expired ")
                 } else {
                     const validOTP = await bcrypt.compare(otp, hashedOTP)
@@ -127,7 +129,7 @@ const verifyOTP = async (req, res) => {
                         throw new Error("Invalid OTP")
                     } else {
                         await User.updateOne({ email: userId }, { verified: true })
-                        await UserOTPverification.deleteMany({ userId });
+                        await UserOTPverification.deleteMany({ userId : userId });
                         res.json({
                             status: "verified",
                             message: "User is Verified Successfully"

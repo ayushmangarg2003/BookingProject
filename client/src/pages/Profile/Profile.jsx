@@ -4,7 +4,9 @@ import profilePic from "../../assets/profilePic.png"
 import { useUserContext } from '../../hooks/useUserContext';
 import { useLogout } from '../../hooks/useLogout'
 import { useNavigate } from 'react-router-dom';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
+import BackendLink from "../../components/App/App.jsx"
+import axios from 'axios';
 const Profile = () => {
   const { logout } = useLogout()
   const [owner, setOwner] = useState("")
@@ -13,8 +15,6 @@ const Profile = () => {
   }
 
   const navigate = useNavigate()
-
-
   const getuser = async () => {
     const { user } = await useUserContext()
     if (!user) {
@@ -23,6 +23,7 @@ const Profile = () => {
     setOwner(user.email)
   }
   getuser()
+
 
   return (
     <div className='profile'>
