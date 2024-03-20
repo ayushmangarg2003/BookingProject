@@ -7,13 +7,13 @@ import axios from 'axios';
 import { useUserContext } from '../../hooks/useUserContext'
 
 const AddProfilePlaces = () => {
-  const [title, setTitle] = useState(' ');
-  const [address, setAddress] = useState(' ');
-  const [photo, setPhoto] = useState(' ');
+  const [title, setTitle] = useState('');
+  const [address, setAddress] = useState('');
+  const [photo, setPhoto] = useState('');
   const [addedPhotos, setAddedPhotos] = useState([]);
-  const [description, setDescription] = useState(' ');
+  const [description, setDescription] = useState('');
   const [perks, setPerks] = useState([]);
-  const [extraInfo, setExtraInfo] = useState(' ');
+  const [extraInfo, setExtraInfo] = useState('');
   const [checkIn, setCheckIn] = useState(0);
   const [checkOut, setCheckOut] = useState(0);
   const [maxGuests, setMaxGuests] = useState(1);
@@ -29,17 +29,6 @@ const AddProfilePlaces = () => {
   }
   getuser()
 
-  useEffect(() => {
-    if (id == 'new') {
-      return;
-    }
-    else {
-      axios.get(`${BackendLink}/places/${id}`).then(response => {
-        const { data } = response;
-      });
-    }
-  }, [id]);
-
   const handleCbClick = (ev) => {
     const { checked, name } = ev.target;
     if (checked) {
@@ -48,6 +37,7 @@ const AddProfilePlaces = () => {
       setPerks([...perks.filter(selectedName => selectedName !== name)]);
     }
   }
+
   const handelPhoto = () => {
     addedPhotos.push(photo)
     setPhoto('')
@@ -60,18 +50,8 @@ const AddProfilePlaces = () => {
       description, perks, extraInfo,
       checkIn, checkOut, maxGuests, price,
     };
-
-    if (id != 'new') {
-      // update
-      await axios.put(`${BackendLink}/places`, {
-        id, ...placeData
-      });
-      setRedirect(true);
-    } else {
-      // new place
-      await axios.post(`${BackendLink}/places`, placeData);
-      setRedirect(true);
-    }
+    await axios.post(`${BackendLink}/places`, placeData);
+    setRedirect(true);
   }
 
   if (redirect) {
@@ -84,25 +64,24 @@ const AddProfilePlaces = () => {
       <div className='profile-nav-parent'>
         <ProfileNavbar />
       </div>
-      <div className="form">
+      <form onSubmit={handelSubmit} className="form">
         <div className="form-top">
           <div className="input-feild">
             <h2>Title</h2>
             <p>Title Should be Short but Catchy</p>
-            <input value={title} onChange={ev => setTitle(ev.target.value)} type="text" />
+            <input required maxLength={50} placeholder='Max Characters: 50' value={title} onChange={ev => setTitle(ev.target.value)} type="text" />
           </div>
           <div className="input-feild">
             <h2>Address</h2>
             <p>Address of the Place</p>
-            <input value={address} onChange={ev => setAddress(ev.target.value)} type="text" />
+            <input required placeholder='Ex: Delhi, India' value={address} onChange={ev => setAddress(ev.target.value)} type="text" />
           </div>
         </div>
         <div className="form-top">
-
           <div className="input-feild">
             <h2>Description</h2>
             <p>Description of the Place</p>
-            <input value={description} onChange={ev => setDescription(ev.target.value)} type="text" />
+            <input required maxLength={500} placeholder='Max Characters: 500' value={description} onChange={ev => setDescription(ev.target.value)} type="text" />
           </div>
           <div className="input-feild">
             <h2>Extra Information</h2>
@@ -159,13 +138,14 @@ const AddProfilePlaces = () => {
               </label>
             </div>
           </div>
+
           <div className="input-feild">
             <h2>CheckIn and CheckOut</h2>
             <p></p>
             <div className="number-inputs">
-              <input type="text" value={checkIn}
+              <input required type="text" value={checkIn}
                 onChange={ev => setCheckIn(ev.target.value)} placeholder='Checkin Time ' />
-              <input value={checkOut}
+              <input required value={checkOut}
                 onChange={ev => setCheckOut(ev.target.value)} type="text" placeholder='Checkout Time' />
 
             </div>
@@ -178,26 +158,24 @@ const AddProfilePlaces = () => {
             <h2>Maximum Guests</h2>
             <p></p>
             <div className="number-inputs">
-              <input value={maxGuests}
-                onChange={ev => setMaxGuests(ev.target.value)} type="number" placeholder='Max Guests' />
+              <input required value={maxGuests}
+                onChange={ev => setMaxGuests(ev.target.value)} type="number" min={1} placeholder='Max Guests' />
             </div>
           </div>
           <div className="input-feild">
             <h2>Price Per Night</h2>
             <p>In Rupees</p>
             <div className="number-inputs">
-              <input value={price}
+              <input min={1} required value={price}
                 onChange={ev => setPrice(ev.target.value)} type="number" placeholder='Price' />
             </div>
           </div>
         </div>
 
-
-
-        <div className="submit-form" onClick={handelSubmit} >
+        <button className="submit-form">
           Save
-        </div>
-      </div>
+        </button>
+      </form>
     </div>
 
   )
