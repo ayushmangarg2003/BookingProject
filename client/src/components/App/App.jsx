@@ -6,23 +6,25 @@ import Footer from "../Footer/Footer";
 
 import Login from "../../pages/Login/Login";
 import Register from "../../pages/Register/Register";
-import Home from '../../pages/Home/Home';
-import Profile from '../../pages/Profile/Profile';
-import ProfilePlaces from '../../pages/ProfilePlaces/ProfilePlaces';
-import AddProfilePlaces from '../../pages/AddProfilePlaces/AddProfilePlaces';
-import SinglePlace from '../../pages/SinglePlace/SinglePlace';
-import Bookings from '../../pages/Bookings/Bookings';
-import Places from '../../pages/Places/Places';
-import About from "../../pages/About/About"
-import Contact from "../../pages/Contact/Contact"
-import { UserContextProvider } from "../../context/UserContext";
-import "./App.css"
 import OTPVerify from '../../pages/OTPVerify/OTPVerify';
 
+import Home from '../../pages/Home/Home';
+import About from "../../pages/About/About"
+import Contact from "../../pages/Contact/Contact"
 
-export const BackendLink = 'http://localhost:4000/api'
-// export const BackendLink = 'https://bookingprojectbackend.onrender.com/api'
+import Profile from '../../pages/Profile/Profile';
+import ProfilePlaces from '../../pages/ProfilePlaces/ProfilePlaces';
+import Bookings from '../../pages/Bookings/Bookings';
+import AddProfilePlaces from '../../pages/AddProfilePlaces/AddProfilePlaces';
 
+import Places from '../../pages/Places/Places';
+import SinglePlace from '../../pages/SinglePlace/SinglePlace';
+import { UserContextProvider } from "../../context/UserContext";
+
+import "./App.css"
+import { Backend } from '../../utils/data';
+
+export const BackendLink = Backend;
 const App = () => {
   return (
     <div className='app'>

@@ -1,0 +1,94 @@
+.otp-parent {
+    width: 100%;
+    min-height: 80vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+
+    .otp-top {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+
+        & h1 {
+            font-size: 2rem;
+            font-weight: 600;
+            font-family: var(--secondary-font);
+        }
+    }
+
+    .otp-center {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 10px;
+        width: 75%;
+
+        .email-otp-parent {
+            width: 50%;
+            & input {
+                padding: 12px;
+                width: 100%;
+                font-size: 1.6rem;
+            }
+        }
+
+        .otp-input-parent{
+            width: 50%;
+            & input{
+            }
+        }
+        & button {
+            padding: 12px;
+            width: 50%;
+            border: none;
+            background-color: var(--light-red);
+            color: var(--white);
+            font-size: 18px;
+            cursor: pointer;
+            border-radius: 4px;
+
+            &:hover {
+                background-color: var(--dark-red);
+            }
+        }
+
+        .otp-input {
+            display: block;
+            border: none;
+            padding: 0;
+            width: 12rem;
+            background: repeating-linear-gradient(90deg,
+                    dimgrey 0, dimgrey 2rem,
+                    transparent 0, transparent 2.5rem) 0 100%/ 10rem 2px no-repeat;
+            font: 3rem monospace;
+            letter-spacing: 0.9rem;
+
+            &:focus {
+                outline: none;
+                color: var(--light-red);
+            }
+        }
+    }
+}
+
+@media only screen and (max-width:500px) {
+    .otp-parent{
+        .otp-center{
+            width: 100%;
+            .email-otp-parent{
+                width: 100%;
+            }
+            .otp-input-parent{
+                width: 100%;
+            }
+            & button{
+                width: 100%;
+            }
+        }
+    }
+}

@@ -1,8 +1,10 @@
+// Imports
 const mongoose = require('mongoose');
 const { Schema } = mongoose;
 const bcrypt = require('bcryptjs')
 const validator = require('validator');
 
+// Schema
 const UserSchema = new Schema({
   name: String,
   email: { type: String, unique: true },
@@ -10,6 +12,7 @@ const UserSchema = new Schema({
   verified: Boolean,
 });
 
+// Register Function
 UserSchema.statics.register = async function (name, email, password) {
   if (!name || !email || !password) {
     throw Error('All fields must be filled')
@@ -33,7 +36,7 @@ UserSchema.statics.register = async function (name, email, password) {
   return user
 }
 
-// Login Method
+// Login Function
 UserSchema.statics.login = async function (email, password) {
   // Validating
   if (!email || !password) {
@@ -51,6 +54,8 @@ UserSchema.statics.login = async function (email, password) {
   return user
 }
 
-
+// Model
 const UserModel = mongoose.model('User', UserSchema);
+
+// Export
 module.exports = UserModel;

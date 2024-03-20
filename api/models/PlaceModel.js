@@ -1,5 +1,7 @@
+// Imports
 const mongoose = require('mongoose');
 
+// Schema
 const placeSchema = new mongoose.Schema({
   owner: String,
   title: String,
@@ -14,6 +16,8 @@ const placeSchema = new mongoose.Schema({
   price: Number,
 });
 
+// Model
 const PlaceModel = mongoose.model('Place', placeSchema);
 
+// Export
 module.exports = PlaceModel;

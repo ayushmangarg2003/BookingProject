@@ -13,7 +13,7 @@ const Login = () => {
 
 
   const navigate = useNavigate()
-  const {setUser} = useContext(UserContext);
+  const { setUser } = useContext(UserContext);
 
 
   const handleSubmit = async e => {

@@ -4,6 +4,7 @@ import Animation from '../../components/Animation/Animation'
 import emailjs from '@emailjs/browser';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import { PUBLIC_USER_KEY, SERVICE_ID, TEMPLATE_ID } from '../../utils/data';
 
 const Contact = () => {
   const form = useRef();
@@ -18,11 +19,12 @@ const Contact = () => {
     subject: subject,
     message: message,
   };
+  
   const sendEmail = (e) => {
     e.preventDefault();
     emailjs
-      .send('service_e3nsjza', 'template_hwv4lij', templateParams, {
-        publicKey: '8venrGo7Aw_T78iEZ',
+      .send(SERVICE_ID, TEMPLATE_ID, templateParams, {
+        publicKey: PUBLIC_USER_KEY,
       })
       .then(
         () => {

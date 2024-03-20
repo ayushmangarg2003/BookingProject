@@ -1,5 +1,8 @@
+// Imports
 const mongoose = require('mongoose');
 const validator = require('validator')
+
+// Schema
 const bookingSchema = new mongoose.Schema({
   place: { type: mongoose.Schema.Types.ObjectId, required: true, ref: 'Place' },
   user: { type: String, required: true },
@@ -11,6 +14,8 @@ const bookingSchema = new mongoose.Schema({
   price: Number,
 });
 
+
+// Booking Function
 bookingSchema.statics.book = async function (place, user, checkIn, numberOfGuests, checkOut, name, phone, price) {
   if (!user) {
     throw Error('Register or Login')
@@ -33,6 +38,8 @@ bookingSchema.statics.book = async function (place, user, checkIn, numberOfGuest
   return booking
 }
 
+// Model
 const BookingModel = mongoose.model('Booking', bookingSchema);
 
+// Export
 module.exports = BookingModel;

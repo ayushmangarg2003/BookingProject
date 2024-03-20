@@ -38,10 +38,9 @@ const loginUser = async (req, res) => {
     }
 }
 
-
 // Get user profile
 const getProfile = async (req, res) => {
-    const { name, email, _id } = await User.findById(userData.id);
+    const { name, email, _id } = await User.findOne({ email: email });
     if (name || email) {
         res.json({ name, email, _id });
     } else {
@@ -49,12 +48,11 @@ const getProfile = async (req, res) => {
     }
 }
 
-
-
 // EMAIL Provider
 let transporter = nodemailer.createTransport({
-    service: 'gmail',
-    host: 'smtp.google.com',
+    host: process.env.MAIL_HOST,
+    port: process.env.MAIL_PORT,
+    secure: false,
     auth: {
         user: process.env.EMAIL,
         pass: process.env.PASS,
@@ -84,7 +82,7 @@ const sendVerificationLink = async (user, res) => {
         })
         console.log(otp);
         await newOTPverifiaction.save();
-        // await transporter.sendMail(mailOption);
+        await transporter.sendMail(mailOption);
 
         res.json({
             user: user,
@@ -105,16 +103,17 @@ const sendVerificationLink = async (user, res) => {
     }
 }
 
+// Verify OTP
 const verifyOTP = async (req, res) => {
     try {
         let { userId, otp } = req.body;
         if (!userId || !otp) {
-            throw Error("Empty Details Not Allowed")
+            throw Error("Empty Details Are Not Allowed")
         } else {
             const UserVerificationRecord = await UserOTPverification.find({
-                userId,
+                userId
             })
-            if (UserVerificationRecord.legth <= 0) {
+            if (UserVerificationRecord.length == 0) {
                 throw Error("No Record Found")
             } else {
                 const { expiresAt } = UserVerificationRecord[0];

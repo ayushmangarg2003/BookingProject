@@ -1,5 +1,5 @@
 import React from 'react'
-import { ShimmerFeaturedGallery, ShimmerSimpleGallery, ShimmerText } from "react-shimmer-effects-18";
+import { ShimmerFeaturedGallery, ShimmerText } from "react-shimmer-effects-18";
 const ShimmerSingle = () => {
     return (
         <div>

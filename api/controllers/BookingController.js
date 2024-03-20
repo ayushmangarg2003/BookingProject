@@ -1,11 +1,11 @@
 const Booking = require('../models/BookingModel');
 
-// Get Bookings
+// Get All Bookings
 const getBookings = async (req, res) => {
     res.json(await Booking.find());
 }
 
-// Add new Bookings
+// New Bookings
 const postBookings = async (req, res) => {
     const {
         place, user, checkIn, numberOfGuests, checkOut, name, phone, price
