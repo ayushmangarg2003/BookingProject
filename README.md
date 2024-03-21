@@ -1,7 +1,5 @@
-# Description
-
 # Links
-https://booking-project-delta.vercel.app/
+https://hotelsss.vercel.app/
 
 # Images and Demo
 
@@ -20,9 +18,9 @@ https://booking-project-delta.vercel.app/
 - jsonwebtoken
 - bcryptjs
 - mongoose
-- image-downloader
 - cors
 - cookie-parser
 - multer
 - dotenv
 - validator 
+- nodemailer
