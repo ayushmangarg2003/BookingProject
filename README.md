@@ -1,5 +1,5 @@
 # Links
-https://hotelsss.vercel.app/
+https://hotelsss.vercel.app/  
 
 # Demo
 https://github.com/ayushmangarg2003/BookingProject/assets/105537793/af28a77c-5521-4cb5-96de-21cb5fc12f96
