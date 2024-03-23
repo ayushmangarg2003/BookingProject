@@ -1,6 +1,5 @@
 const fs = require('fs');
 const Place = require('../models/PlaceModel');
-const imageDownloader = require('image-downloader');
 const jwt = require('jsonwebtoken');
 const jwtSecret = process.env.JWT_SECRET
 

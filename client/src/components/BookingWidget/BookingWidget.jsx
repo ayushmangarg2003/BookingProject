@@ -25,17 +25,23 @@ const BookingWidget = (props) => {
     }
 
     const bookThisPlace = async () => {
-        const response = await axios.post(`${BackendLink}/bookings`, {
-            checkIn: checkIn, checkOut: checkOut, numberOfGuests: numberOfGuests, name: name, phone: phone, user: user.email,
-            place: place._id,
-            price: numberOfNights * place.price,
-        });
-        if (response.data.error) {
-            setError(response.data.error)
-        }
-        else {
-            const bookingId = response.data._id;
-            navigate(`/profile/bookings`);
+        if (!user) {
+            setError("Login or Signup First");
+        } else {
+
+            const response = await axios.post(`${BackendLink}/bookings`, {
+                checkIn: checkIn, checkOut: checkOut, numberOfGuests: numberOfGuests, name: name, phone: phone, user: user.email,
+                place: place._id,
+                price: numberOfNights * place.price,
+            });
+            console.log("RESPONSE", response);
+            if (response.data.error) {
+                setError(response.data.error)
+            }
+            else {
+                const bookingId = response.data._id;
+                navigate(`/profile/bookings`);
+            }
         }
     }
 
