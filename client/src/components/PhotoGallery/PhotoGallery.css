@@ -6,18 +6,19 @@
     left: 0;
     z-index: 3;
     min-height: 100vh;
-    
+    padding: 6rem 2rem;
+
     .gallery-parent {
         display: flex;
         flex-direction: column;
         width: 100%;
-        
+
         .gallery-top {
             padding: 20px;
             display: flex;
             width: 100%;
             justify-content: end;
-            
+
             & button {
                 background-color: var(--light-red);
                 color: var(--white);
@@ -25,7 +26,7 @@
                 width: 50px;
             }
         }
-        
+
         .gallery-bottom {
             width: 100%;
             display: flex;
@@ -53,6 +54,7 @@
     .main-photo {
         width: 65%;
         height: 100%;
+
         & div {
             width: 100%;
             height: 100%;
@@ -73,54 +75,88 @@
         gap: 5px;
         overflow: hidden;
 
-        & img{
-            height: 65%;
+        & img {
+            height: 70%;
             width: 100%;
             object-fit: cover;
         }
-        .third-photo-container{
+
+        .third-photo-container {
             width: 100%;
-            height: 35%;
+            height: 30%;
             display: flex;
             gap: 5px;
 
-            & img{
+            & img {
                 width: 65%;
                 height: 100%;
                 object-fit: cover;
             }
 
-            & button{
+            .fourth-photo-container {
                 width: 35%;
                 overflow: hidden;
                 cursor: pointer;
+                position: relative;
+
+                & img {
+                    width: 100%;
+                    position: relative;
+                    height: 100%;
+                    object-fit: cover;
+
+                }
+
+                & button {
+                    position: absolute;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    width: 100%;
+                    height: 100%;
+                    outline: none;
+                    color: var(--white);
+                    font-weight: 300;
+                    cursor: pointer;
+                    font-family: var(--secondary-font);
+                    font-size: 4rem;
+                    background-color: rgba(0, 0, 0, 0.6);
+                    top: 0;
+                    left: 0;
+                    z-index: 1000;
+                }
+
             }
+
         }
     }
 }
 
-@media only screen and (max-width:800px){
-    .gallery-container{
+@media only screen and (max-width:800px) {
+    .gallery-container {
         padding: 5rem 10px;
-        .gallery-parent{
 
-            .gallery-top{
-                padding:10px 0;
+        .gallery-parent {
+
+            .gallery-top {
+                padding: 10px 0;
             }
         }
     }
+
     .photos-container {
         flex-direction: column;
         width: 100%;
         height: 60vh;
-    
+
         .main-photo {
             width: 100%;
             height: 65%;
+
             & div {
                 width: 100%;
                 height: 100%;
-    
+
                 & img {
                     width: 100%;
                     height: 100%;
@@ -128,43 +164,36 @@
                 }
             }
         }
-    
+
         .extra-photos-container {
             flex-direction: row;
             width: 100%;
             height: 35%;
-    
-            & img{
+
+            & img {
                 height: 100%;
                 width: 65%;
                 object-fit: cover;
             }
-            .third-photo-container{
+
+            .third-photo-container {
                 width: 35%;
                 height: 100%;
                 flex-direction: column;
-    
-                & img{
+
+                & img {
                     width: 100%;
                     height: 65%;
                     object-fit: cover;
                 }
-    
-                & button{
+
+                .fourth-photo-container {
                     width: 100%;
-                    height: 35%;
-                    display: flex;
-                    flex-direction: row-reverse;
-                    justify-content: center;
-                    align-items: center;
-                    & svg{
-                        width: 40%;
-                        height: 65%;
+
+                    & button {
+                        height: 100%;
                     }
-                    & span {
-                        width: 60%;
-                    }
-    
+
                 }
             }
         }
