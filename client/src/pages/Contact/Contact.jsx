@@ -5,6 +5,7 @@ import emailjs from '@emailjs/browser';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { PUBLIC_USER_KEY, SERVICE_ID, TEMPLATE_ID } from '../../utils/data';
+import Contact_IMG from "../../assets/Contact.svg"
 
 const Contact = () => {
   const form = useRef();
@@ -19,7 +20,7 @@ const Contact = () => {
     subject: subject,
     message: message,
   };
-  
+
   const sendEmail = (e) => {
     e.preventDefault();
     emailjs
@@ -43,8 +44,26 @@ const Contact = () => {
     <>
       <Animation />
       <div className="contact-container">
-        <div className="section-heading">CONTACT</div>
+        {/* <div className="section-heading">Get in Touch</div> */}
+        <div className="contact-top-parent">
+          <div className="contact-top-left">
+            <p>Get in Touch</p>
+            <h2>Visit our Agency or Contact us Today</h2>
+            <div className="contact-left-bottom">
+              <p><i className="fa-regular fa-map"></i> Address - Delhi, India</p>
+              <p><i className="fa-regular fa-envelope"></i> Email - contact@homestays.com</p>
+              <p><i className="fa-solid fa-phone"></i> Ph No. - 9876543210</p>
+              <p><i className="fa-regular fa-clock"></i> Timings - Monday-Friday: 9AM to 6PM</p>
+            </div>
+          </div>
+          <div className="contact-top-right">
+            <img src={Contact_IMG} alt="Contact" />
+          </div>
+        </div>
         <div className='contact-parent'>
+          <div className="section-heading">
+            Send a Message
+          </div>
           <form ref={form} onSubmit={sendEmail} className='contact-form'>
             <div className='form-left'>
               <input required value={name} onChange={(e) => setName(e.target.value)} className='form-input' placeholder="Your Name" />
