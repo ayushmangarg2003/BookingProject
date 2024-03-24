@@ -23,11 +23,32 @@ const AddProfilePlaces = () => {
 
   const id = location.pathname.split("/")[3];
 
-  const getuser = async () => {
-    const { user } = await useUserContext()
-    setOwner(user.email)
-  }
-  getuser()
+
+  useEffect(() => {
+
+    const getuser = async () => {
+      if (id == 'new') {
+        const { user } = await useUserContext()
+        setOwner(user.email)
+      } else {
+        await axios.get(`${BackendLink}/places/${id}`).then(response => {
+          setOwner(response.data.owner)
+          setTitle(response.data.title);
+          setAddress(response.data.address);
+          setAddedPhotos(response.data.photos);
+          setDescription(response.data.description);
+          setPerks(response.data.perks);
+          setExtraInfo(response.data.extraInfo);
+          setCheckIn(response.data.checkIn);
+          setCheckOut(response.data.checkOut);
+          setMaxGuests(response.data.maxGuests);
+          setPrice(response.data.price);
+        })
+      }
+    }
+    getuser()
+  }, [])
+
 
   const handleCbClick = (ev) => {
     const { checked, name } = ev.target;
@@ -50,12 +71,17 @@ const AddProfilePlaces = () => {
       description, perks, extraInfo,
       checkIn, checkOut, maxGuests, price,
     };
-    await axios.post(`${BackendLink}/places`, placeData);
-    setRedirect(true);
+    if (id == 'new') {
+      await axios.post(`${BackendLink}/places`, placeData);
+      setRedirect(true);
+    } else {
+      await axios.put(`${BackendLink}/places`, {id, ...placeData})
+      setRedirect(true);
+    }
   }
 
   if (redirect) {
-    return <Navigate to={'/profile/places'} />
+    return <Navigate to={`/places/${id}`} />
   }
 
 

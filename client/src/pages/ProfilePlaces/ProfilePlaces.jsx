@@ -51,7 +51,7 @@ const ProfilePlaces = () => {
           ) : (
 
             placesArray.filter(checkPlace).map((item) => (
-              <PlaceCard to={'/places'} key={item._id} place={item} />
+              <PlaceCard to={'/profile/places'} key={item._id} place={item} />
             ))
           )
         }
