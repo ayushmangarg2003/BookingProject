@@ -10,6 +10,7 @@ const AddProfilePlaces = () => {
   const [title, setTitle] = useState('');
   const [address, setAddress] = useState('');
   const [photo, setPhoto] = useState('');
+  const [photoDev, setPhotoDev] = useState('');
   const [addedPhotos, setAddedPhotos] = useState([]);
   const [description, setDescription] = useState('');
   const [perks, setPerks] = useState([]);
@@ -23,29 +24,40 @@ const AddProfilePlaces = () => {
 
   const id = location.pathname.split("/")[3];
 
-
-  useEffect(() => {
-
-    const getuser = async () => {
-      if (id == 'new') {
-        const { user } = await useUserContext()
-        setOwner(user.email)
-      } else {
-        await axios.get(`${BackendLink}/places/${id}`).then(response => {
-          setOwner(response.data.owner)
-          setTitle(response.data.title);
-          setAddress(response.data.address);
-          setAddedPhotos(response.data.photos);
-          setDescription(response.data.description);
-          setPerks(response.data.perks);
-          setExtraInfo(response.data.extraInfo);
-          setCheckIn(response.data.checkIn);
-          setCheckOut(response.data.checkOut);
-          setMaxGuests(response.data.maxGuests);
-          setPrice(response.data.price);
-        })
+  const convertToBase64 = (file) => {
+    return new Promise((resolve, reject) => {
+      const fileReader = new FileReader();
+      fileReader.readAsDataURL(file);
+      fileReader.onload = () => {
+        resolve(fileReader.result)
+      };
+      fileReader.onerror = (error) => {
+        reject(error)
       }
+    })
+  }
+
+  const getuser = async () => {
+    if (id == 'new') {
+      const { user } = await useUserContext()
+      setOwner(user.email)
+    } else {
+      await axios.get(`${BackendLink}/places/${id}`).then(response => {
+        setOwner(response.data.owner)
+        setTitle(response.data.title);
+        setAddress(response.data.address);
+        setAddedPhotos(response.data.photos);
+        setDescription(response.data.description);
+        setPerks(response.data.perks);
+        setExtraInfo(response.data.extraInfo);
+        setCheckIn(response.data.checkIn);
+        setCheckOut(response.data.checkOut);
+        setMaxGuests(response.data.maxGuests);
+        setPrice(response.data.price);
+      })
     }
+  }
+  useEffect(() => {
     getuser()
   }, [])
 
@@ -64,6 +76,20 @@ const AddProfilePlaces = () => {
     setPhoto('')
   }
 
+
+  const handelPhotoDevice = async (e) => {
+    const file = e.target.files[0]
+    const base64 = await convertToBase64(file);
+    setPhotoDev(base64)
+    e.target.value = null;
+  }
+
+  const handelPhotoClick = () => {
+    if (photoDev) {
+      addedPhotos.push(photoDev)
+      setPhotoDev('')
+    }
+  }
   const handelSubmit = async (e) => {
     e.preventDefault()
     const placeData = {
@@ -75,7 +101,7 @@ const AddProfilePlaces = () => {
       await axios.post(`${BackendLink}/places`, placeData);
       setRedirect(true);
     } else {
-      await axios.put(`${BackendLink}/places`, {id, ...placeData})
+      await axios.put(`${BackendLink}/places`, { id, ...placeData })
       setRedirect(true);
     }
   }
@@ -83,6 +109,7 @@ const AddProfilePlaces = () => {
   if (redirect) {
     return <Navigate to={`/places/${id}`} />
   }
+
 
 
   return (
@@ -119,14 +146,36 @@ const AddProfilePlaces = () => {
         <div className="input-feild">
           <h2>Images</h2>
           <p>More = Better</p>
-          <div className="input-image">
-            <input type="text" value={photo} onChange={ev => setPhoto(ev.target.value)} placeholder='Add Links one by one' />
-            <div className="add-img-btn" onClick={handelPhoto}>Add</div>
+
+          <div className="form-top">
+
+            <div className="input-image">
+              <input type="text" value={photo} onChange={ev => setPhoto(ev.target.value)} placeholder='Add Links one by one' />
+              <div className="add-img-btn" onClick={handelPhoto}>Add</div>
+            </div>
+
+
+            <div className="input-image">
+              <label htmlFor="file-upload"><i className="fa-solid fa-cloud-arrow-up"></i> Upload Image</label>
+              <input
+                type="file"
+                lable="Image"
+                name="myFile"
+                className='file-upload'
+                id='file-upload'
+                accept='.jpeg, .png, .jpg , .webp'
+                onChange={(ev) => handelPhotoDevice(ev)}
+              />
+              <div className="add-img-btn" onClick={handelPhotoClick}>Add</div>
+            </div>
           </div>
+
+
+
           <div className="img-span-parent">
             {
-              addedPhotos.map((item) => (
-                <img className='img-span' src={item} key={item} alt={item} />
+              addedPhotos.map((item, index) => (
+                <img className='img-span' src={item} key={index} alt={item} />
               ))
             }
           </div>

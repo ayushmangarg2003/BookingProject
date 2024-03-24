@@ -53,7 +53,7 @@ const PhotoGallery = (props) => {
                                     <img onClick={() => setShowAllPhotos(true)} src={place.photos[3]} alt="" />
                                 ) : (<img onClick={() => setShowAllPhotos(true)} src={place.photos[0]} alt="" />)
                             }
-                            <button>+</button>
+                            <button onClick={() => setShowAllPhotos(true)}>+</button>
                         </div>
 
                     </div>

@@ -39,7 +39,6 @@
             font-size: 1rem;
             padding: 10px;
             border-radius: 4px;
-            /* border: none; */
             border: 1px solid rgba(0, 0, 0, 0.1);
             outline: none;
         }
@@ -47,16 +46,31 @@
         .input-image {
             display: flex;
             align-items: center;
-            gap: 10px;
+            gap: 1rem;
+
+            & label{
+                cursor: pointer;
+                border: 1px solid rgba(0, 0, 0, 0.2);
+                padding: 8px;
+                color: rgba(0, 0, 0, 0.5);
+                border-radius: 4px;
+                min-width: 150px;
+                width: 100%;
+            }
+
+            .file-upload{
+                display: none;
+            }
 
             & input {
-                width: 100%;
+                min-width: 150px;
             }
 
             & div {
                 background-color: var(--light-red);
                 padding: 10px;
                 border-radius: 4px;
+                cursor: pointer;
                 color: var(--white);
             }
         }
@@ -97,6 +111,7 @@
         .img-span {
             display: block;
             width: auto;
+            min-width: 200px;
             max-width: 250px;
             border-radius: 4px;
         }

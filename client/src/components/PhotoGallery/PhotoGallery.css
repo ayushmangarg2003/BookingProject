@@ -14,7 +14,7 @@
         width: 100%;
 
         .gallery-top {
-            padding: 20px;
+            padding: 10px 0;
             display: flex;
             width: 100%;
             justify-content: end;
