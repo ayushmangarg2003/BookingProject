@@ -21,6 +21,7 @@ const AddProfilePlaces = () => {
   const [price, setPrice] = useState(10000);
   const [redirect, setRedirect] = useState(false);
   const [owner, setOwner] = useState('')
+  const [length, setLength] = useState(0)
 
   const id = location.pathname.split("/")[3];
 
@@ -76,7 +77,6 @@ const AddProfilePlaces = () => {
     setPhoto('')
   }
 
-
   const handelPhotoDevice = async (e) => {
     const file = e.target.files[0]
     const base64 = await convertToBase64(file);
@@ -90,6 +90,13 @@ const AddProfilePlaces = () => {
       setPhotoDev('')
     }
   }
+
+  const deletePicture = () => {
+    addedPhotos.pop()
+    setAddedPhotos(addedPhotos)
+    setLength(length + 1)
+  }
+
   const handelSubmit = async (e) => {
     e.preventDefault()
     const placeData = {
@@ -109,6 +116,7 @@ const AddProfilePlaces = () => {
   if (redirect) {
     return <Navigate to={`/places/${id}`} />
   }
+
 
 
 
@@ -168,6 +176,11 @@ const AddProfilePlaces = () => {
               />
               <div className="add-img-btn" onClick={handelPhotoClick}>Add</div>
             </div>
+            {
+              addedPhotos.length > 0 ? (
+                <div onClick={deletePicture} className='image-button'>Remove Photo</div>
+              ) : (<div></div>)
+            }
           </div>
 
 
@@ -175,7 +188,9 @@ const AddProfilePlaces = () => {
           <div className="img-span-parent">
             {
               addedPhotos.map((item, index) => (
-                <img className='img-span' src={item} key={index} alt={item} />
+                <div key={index} className='img-preview-parent'>
+                  <img className='img-span' src={item} alt={item} />
+                </div>
               ))
             }
           </div>
