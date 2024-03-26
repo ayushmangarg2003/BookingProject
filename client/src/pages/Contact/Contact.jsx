@@ -44,7 +44,6 @@ const Contact = () => {
     <>
       <Animation />
       <div className="contact-container">
-        {/* <div className="section-heading">Get in Touch</div> */}
         <div className="contact-top-parent">
           <div className="contact-top-left">
             <p>Get in Touch</p>

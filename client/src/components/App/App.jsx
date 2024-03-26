@@ -23,6 +23,7 @@ import { UserContextProvider } from "../../context/UserContext";
 
 import "./App.css"
 import { Backend } from '../../utils/data';
+import Chatbot from '../ChatBot/Chatbot';
 
 export const BackendLink = Backend;
 const App = () => {
@@ -31,6 +32,7 @@ const App = () => {
       <UserContextProvider>
         <BrowserRouter>
           <Navbar />
+          <Chatbot />
           <div className="app-container">
             <Routes>
               <Route path="/" element={<Home />} />
