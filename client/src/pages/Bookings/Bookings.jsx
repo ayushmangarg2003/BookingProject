@@ -15,7 +15,7 @@ const Bookings = () => {
   useEffect(() => {
     axios.get(`${BackendLink}/bookings`).then(response => {
       const { data } = response;
-      setBookingArray(data)
+      setBookingArray(data.reverse())
     });
 
     if (bookingArray.filter(checkPlace).length > 0) {

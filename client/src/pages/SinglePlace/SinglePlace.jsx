@@ -29,14 +29,19 @@ const SinglePlace = () => {
 
   const [review, setReview] = useState([])
   const [filtered, setFiltered] = useState([])
+  const [showRev, setShowRev] = useState(false)
 
   useEffect(() => {
     axios.get(`${BackendLink}/review/getReview`).then(response => {
       const { data } = response;
-      setReview(data)
+      setReview(data.reverse())
       setFiltered(review.filter(checkPlace))
+      if (review.filter(checkPlace).length > 0) {
+        setShowRev(true)
+      }
     });
   }, [place]);
+
 
   const checkPlace = (review) => {
     return review.place == id
@@ -50,7 +55,7 @@ const SinglePlace = () => {
         <div className='single-place-container'>
           <div className="top-container">
             <h1>{place.title}</h1 >
-            <p>{place.address}</p>
+            <p><i className="fa-solid fa-location-dot"></i>{place.address}</p>
             <PhotoGallery place={place} />
           </div >
           <div className='middle-container'>
@@ -91,19 +96,26 @@ const SinglePlace = () => {
             }
           </div>
           <div className="review-container">
-            <div className="bottom-heading">
-              <h2><i className="fa-solid fa-book-open"></i> Reviews</h2>
-            </div>
-            <div className="reviews-parent">
-              {
-                filtered.map((item, index) => (
-                  <div key={index} className="review">
-                    <h4>{item.review}</h4>
-                    <div></div>
+            {
+              !showRev ? (<h1></h1>) : (
+                <>
+                  <div className="bottom-heading">
+                    <h2><i className="fa-solid fa-book-open"></i> Reviews</h2>
                   </div>
-                ))
-              }
-            </div>
+                  <div className="reviews-parent">
+                    {
+                      filtered.map((item, index) => (
+                        <div key={index} className="review">
+                          <h4>{item.review}</h4>
+                          <div></div>
+                        </div>
+                      ))
+                    }
+                  </div>
+                </>
+              )
+            }
+
           </div>
         </div >
       )

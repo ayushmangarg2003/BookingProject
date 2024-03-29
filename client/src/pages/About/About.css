@@ -21,7 +21,11 @@
         width: 50%;
         margin-bottom: 1rem;
         text-decoration: underline;
-        text-decoration-color: var(--light-red) ;
+        text-decoration-color: var(--light-red);
+
+        & i {
+            color: var(--dark-red);
+        }
     }
 
     & p {
@@ -45,7 +49,11 @@
         font-family: var(--secondary-font);
         width: 50%;
         text-decoration: underline;
-        text-decoration-color: var(--light-red) ;
+        text-decoration-color: var(--light-red);
+
+        & i {
+            color: var(--dark-red);
+        }
     }
 
     .about-card-container {
@@ -80,7 +88,7 @@
             & h3 {
                 font-size: 20px;
             }
-            
+
             & p {
                 color: var(--black-light);
                 text-align: end;
@@ -135,7 +143,8 @@
         .about-card-container {
             width: 100%;
             justify-content: center;
-            .about-card{
+
+            .about-card {
                 width: 90%;
             }
         }

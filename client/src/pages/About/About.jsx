@@ -8,12 +8,12 @@ const About = () => {
     <div className="about-page">
       <Animation/>
       <div className="about">
-        <h2> About us</h2>
+        <h2><i className="fa-solid fa-quote-left"></i> About us</h2>
         <p>{ABOUT}</p>
       </div>
 
       <div className="about-stats">
-        <h2>Fast Facts</h2>
+        <h2><i className="fa-solid fa-quote-right"> </i> Fast Facts</h2>
         <div className="about-card-container">
           {
             FACT_CARDS.map((item, index) => (

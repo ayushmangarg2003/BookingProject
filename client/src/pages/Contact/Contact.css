@@ -76,6 +76,9 @@
                     font-weight: 300;
                     color: #555;
                     font-weight: 300;
+                    & i{
+                        color: var(--dark-red);
+                    }
                 }
             }
         }

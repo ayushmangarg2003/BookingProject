@@ -12,7 +12,7 @@ const Places = () => {
   useEffect(() => {
     axios.get(`${BackendLink}/places`).then(response => {
       const { data } = response;
-      setPlacesArray(data)
+      setPlacesArray(data.reverse())
       setLoading(false)
     });
   }, []);

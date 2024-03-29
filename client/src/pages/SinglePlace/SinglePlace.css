@@ -4,6 +4,10 @@
     gap: 1rem;
     padding: 1rem 0;
 
+    & i{
+        color: var(--dark-red);
+    }
+
     .top-container {
         & h1 {
             font-size: 32px;
@@ -19,6 +23,8 @@
             color: var(--black-light);
             font-size: 24px;
             font-style: italic;
+            display: flex;
+            align-items: center;
             margin-bottom: 1px;
         }
     }
@@ -131,7 +137,7 @@
                     font-size: 16px;
                     font-weight: 400;
                     width: 90%;
-                    overflow-y:hidden;
+                    overflow-y: hidden;
                 }
 
                 & div {
@@ -143,13 +149,15 @@
         }
     }
 }
+
 @media only screen and (max-width: 1000px) {
-    .single-place-container{
-        .review-container{
-            .reviews-parent{
+    .single-place-container {
+        .review-container {
+            .reviews-parent {
                 grid-template-columns: 1fr 1fr;
-                & .review{
-                    & h4{
+
+                & .review {
+                    & h4 {
                         font-size: 14px;
                     }
                 }
@@ -157,6 +165,7 @@
         }
     }
 }
+
 @media only screen and (max-width: 800px) {
     .single-place-container {
         .top-container {
@@ -193,8 +202,9 @@
             }
 
         }
-        .review-container{
-            .reviews-parent{
+
+        .review-container {
+            .reviews-parent {
                 grid-template-columns: 1fr;
             }
         }
