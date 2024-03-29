@@ -11,6 +11,7 @@ const mongoose = require('mongoose')
 const userRoutes = require('./routes/UserRoute')
 const bookingRoutes = require('./routes/BookingRoute')
 const placeRoutes = require('./routes/PlaceRoute')
+const reviewRoutes = require('./routes/ReviewRoute')
 
 const app = express()
 
@@ -23,6 +24,7 @@ app.use(cookieParser());
 app.use('/api/user', userRoutes)
 app.use('/api/bookings', bookingRoutes)
 app.use('/api/places', placeRoutes)
+app.use('/api/review', reviewRoutes)
 
 // Routes
 app.get('/test', (req, res) => {

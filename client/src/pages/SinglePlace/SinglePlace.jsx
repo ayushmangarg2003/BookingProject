@@ -5,7 +5,6 @@ import { BackendLink } from '../../components/App/App';
 import axios from 'axios';
 import PhotoGallery from '../../components/PhotoGallery/PhotoGallery';
 import BookingWidget from '../../components/BookingWidget/BookingWidget';
-import Shimmer from '../../components/Shimmer/Shimmer';
 import ShimmerSingle from '../../components/Shimmer/ShimmerSingle';
 
 const SinglePlace = () => {
@@ -15,6 +14,7 @@ const SinglePlace = () => {
     photos: [],
     perks: []
   })
+
   const location = useLocation();
   const id = location.pathname.split("/")[2];
 
@@ -25,6 +25,24 @@ const SinglePlace = () => {
       setLoading(false)
     });
   }, []);
+
+
+  const [review, setReview] = useState([])
+  const [filtered, setFiltered] = useState([])
+
+  useEffect(() => {
+    axios.get(`${BackendLink}/review/getReview`).then(response => {
+      const { data } = response;
+      setReview(data)
+      setFiltered(review.filter(checkPlace))
+    });
+  }, [place]);
+
+  const checkPlace = (review) => {
+    return review.place == id
+  }
+
+
 
   return <>
     {
@@ -38,7 +56,7 @@ const SinglePlace = () => {
           <div className='middle-container'>
             <div className='middle-text'>
               <div className='middle-desc'>
-                <h2>Description</h2>
+                <h2><i className="fa-solid fa-circle-info"></i> Description</h2>
                 <p>{place.description}</p>
               </div>
               <div className="middle-numbers">
@@ -65,12 +83,27 @@ const SinglePlace = () => {
               place.extraInfo ? (
                 <>
                   <div className='bottom-heading'>
-                    <h2 >Extra info</h2>
+                    <h2 ><i className="fa-solid fa-qrcode"></i> Extra info</h2>
                   </div>
                   <div className='bottom-text'>{place.extraInfo}</div>
                 </>
               ) : (<div> </div>)
             }
+          </div>
+          <div className="review-container">
+            <div className="bottom-heading">
+              <h2><i className="fa-solid fa-book-open"></i> Reviews</h2>
+            </div>
+            <div className="reviews-parent">
+              {
+                filtered.map((item, index) => (
+                  <div key={index} className="review">
+                    <h4>{item.review}</h4>
+                    <div></div>
+                  </div>
+                ))
+              }
+            </div>
           </div>
         </div >
       )
