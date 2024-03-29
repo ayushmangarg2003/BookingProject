@@ -221,11 +221,6 @@ const AddProfilePlaces = () => {
                 <i className="fa-solid fa-tv"></i>
                 <span>TV</span>
               </label>
-              <label>
-                <input type="checkbox" checked={perks.includes('pets')} name="pets" onChange={handleCbClick} />
-                <i className="fa-solid fa-dog"></i>
-                <span>Pets</span>
-              </label>
             </div>
           </div>
 

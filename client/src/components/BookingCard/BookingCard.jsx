@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import "./BookingCard.css"
-import { differenceInCalendarDays, format } from "date-fns";
+import { format } from "date-fns";
 import axios from 'axios'
 import { BackendLink } from '../App/App'
 import Shimmer from '../Shimmer/Shimmer';
