@@ -114,7 +114,7 @@ const AddProfilePlaces = () => {
   }
 
   if (redirect) {
-    return <Navigate to={`/places/${id}`} />
+    return <Navigate to={`/places`} />
   }
 
 
