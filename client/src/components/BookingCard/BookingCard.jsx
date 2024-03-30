@@ -3,8 +3,8 @@ import "./BookingCard.css"
 import { format } from "date-fns";
 import axios from 'axios'
 import { BackendLink } from '../App/App'
-import Shimmer from '../Shimmer/Shimmer';
 import { ToastContainer, toast } from 'react-toastify';
+import ShimmerBookings from '../Shimmer/ShimmerBookings';
 
 
 const BookingCard = (props) => {
@@ -38,7 +38,7 @@ const BookingCard = (props) => {
 
   return <>
     {
-      loading ? (<Shimmer />) :
+      loading ? (<ShimmerBookings />) :
         (
           <div className='booking-card'>
             <ToastContainer position="bottom-center" />
@@ -64,7 +64,7 @@ const BookingCard = (props) => {
               <div className="add-review">
                 <form onSubmit={handelReviewSubmit} action="">
                   <input value={review} onChange={(e) => { setReview(e.target.value) }} minLength={100} maxLength={500} type="text" placeholder='Write a Review' />
-                  <button>Submit</button>
+                  <button><i className="fa-solid fa-arrow-right"></i></button>
                 </form>
               </div>
             </div>
