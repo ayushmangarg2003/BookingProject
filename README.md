@@ -1,5 +1,13 @@
+# Title
+Homestayz
+
+# Description
+Homestayz is an innovative Homestay booking platform developed using the MERN Stack. The platform offers seamless integration of CRUD functionalities, allowing users to easily Create, Read, Update, and Delete Homestays. With its intuitive design and efficient user experience, Homestayz simplifies the process of booking and renting.
+
 # Links
-https://hotelsss.vercel.app/  
+Website :- https://homestayz.vercel.app/
+Github  :- https://github.com/ayushmangarg2003/Homestayz 
+App     :- https://github.com/ayushmangarg2003/HomestayzApp
 
 # Demo
 https://github.com/ayushmangarg2003/BookingProject/assets/105537793/af28a77c-5521-4cb5-96de-21cb5fc12f96
@@ -23,7 +31,7 @@ https://github.com/ayushmangarg2003/BookingProject/assets/105537793/af28a77c-552
 - cookie-parser
 - multer
 - dotenv
-- validator 
+- validator
 - nodemailer
 
 ## Tech Stack

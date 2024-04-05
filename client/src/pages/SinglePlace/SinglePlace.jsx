@@ -32,14 +32,24 @@ const SinglePlace = () => {
   const [showRev, setShowRev] = useState(false)
 
   useEffect(() => {
-    axios.get(`${BackendLink}/review/getReview`).then(response => {
+    const getReview = async () => {
+      const response = await axios.get(`${BackendLink}/review/getReview`)
       const { data } = response;
       setReview(data.reverse())
-      setFiltered(review.filter(checkPlace))
-      if (review.filter(checkPlace).length > 0) {
+
+      const temp = review.filter(checkPlace)
+
+      if (temp.length > 3) {
         setShowRev(true)
+        setFiltered(temp.slice(0, 3))
       }
-    });
+      else if (temp.length > 0) {
+        setShowRev(true)
+        setFiltered(temp)
+      }
+      console.log('HI');
+    }
+    getReview()
   }, [place]);
 
 

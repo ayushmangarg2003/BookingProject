@@ -67,7 +67,7 @@ const BookingWidget = (props) => {
                     </div>
                 </div>
                 <div className='widget-max-guest'>
-                    <label>Number of guests:</label>
+                    <label><i class="fa-solid fa-people-group"> </i> Number of guests:</label>
                     <input type="number"
                         required={true}
                         value={numberOfGuests}
@@ -76,14 +76,14 @@ const BookingWidget = (props) => {
                 {numberOfNights > 0 && (
                     <div className='extra-details'>
                         <div className='widget-extra'>
-                            <label>Your full name:</label>
+                            <label><i class="fa-solid fa-user"> </i>Your full name:</label>
                             <input type="text"
                                 required={true}
                                 value={name}
                                 onChange={ev => setName(ev.target.value)} />
                         </div>
                         <div className='widget-extra'>
-                            <label>Phone number:</label>
+                            <label><i class="fa-solid fa-phone"> </i> Phone number:</label>
                             <input type="tel"
                                 placeholder='+919876543210'
                                 required={true}
@@ -94,9 +94,9 @@ const BookingWidget = (props) => {
                 )}
             </div>
             <button onClick={bookThisPlace}>
-                Book Now at
+                Book Now
                 {numberOfNights > 0 && (
-                    <span> ₹{numberOfNights * place.price}</span>
+                    <span> at ₹{numberOfNights * place.price}</span>
                 )}
             </button>
             <div className="error">
