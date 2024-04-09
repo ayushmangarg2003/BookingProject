@@ -9,7 +9,7 @@ const Chatbot = () => {
     return (
         <>
             <div className='chatbot-parent' onClick={handleClass}>
-                {collapsed ? <i className="fa-solid fa-robot"></i> : <i class="fa-solid fa-xmark"></i>}
+                {collapsed ? <i className="fa-solid fa-robot"></i> : <i className="fa-solid fa-xmark"></i>}
             </div>
             <iframe
                 allow="microphone;"

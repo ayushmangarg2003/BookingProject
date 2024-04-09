@@ -1,32 +1,3 @@
-@keyframes floatingv {
-    0% {
-        transform: translate(0, 0px);
-    }
-
-    50% {
-        transform: translate(0, 30px);
-    }
-
-    100% {
-        transform: translate(0, -0px);
-    }
-}
-
-@keyframes boranimation {
-    25% {
-        border-radius: 47% 53% 28% 72% / 41% 33% 67% 59%;
-    }
-
-    50% {
-        border-radius: 30% 70% 33% 67% / 74% 64% 36% 26%;
-    }
-
-    75% {
-        border-radius: 70% 30% 28% 72% / 58% 59% 41% 42%;
-    }
-}
-
-
 .otp-parent {
     width: 100%;
     min-height: 80vh;
@@ -35,15 +6,12 @@
     align-items: center;
 
     .otp-center {
-        width: 500px;
-        height: 500px;
-        border-radius: 58% 42% 35% 65% / 69% 57% 43% 31%;
-        animation-name: floatingv, boranimation;
-        animation-duration: 8s, 15s;
+        width: 75%;
+        height: 100%;
+        padding: 5rem 0;
         margin: 10px;
-        animation-iteration-count: infinite, infinite;
-        animation-timing-function: ease-in-out, ease-in-out;
-        background-color: var(--light-red);
+        background-color: #fff;
+        box-shadow: rgba(1, 1, 1, 0.2) 0px 2px 8px 0px;
         display: flex;
         flex-direction: column;
         justify-content: center;
@@ -56,37 +24,57 @@
             justify-content: center;
             flex-direction: column;
             align-items: center;
-            & h2{
+
+            & h2 {
                 font-size: 28px;
                 font-weight: 600;
-                color: var(--white);
+                text-align: center;
+                color: var(--black);
+            }
+
+            & h3 {
+                font-size: 20px;
+                color: var(--black-light);
+                text-align: center;
+                margin: 5px 0;
+            }
+
+            & p {
+                color: var(--light-red);
+                font-weight: 500;
             }
         }
 
         & button {
-            padding: 8px;
-            width: 180px;
+            padding: 10px;
+            max-width: 275px;
+            width: 90%;
             border: none;
-            background-color: var(--white);
-            color: var(--light-red);
+            background-color: var(--light-red);
+            color: var(--white);
             font-size: 18px;
             cursor: pointer;
             border-radius: 2px;
             font-weight: 400;
+            transition: var(--transition-normal);
+
+            &:hover {
+                background-color: var(--dark-red);
+                color: white;
+            }
         }
 
         .otp-input {
             display: block;
             border: none;
-            padding: 10px 0px 10px 5px;
             margin: 20px 0;
-            width: 180px;
-            background: repeating-linear-gradient(90deg,
-            rgb(255, 255, 255) 0, rgb(255, 255, 255) 35px,
-            transparent 0, transparent 50px) 0 100%/ 180px 4px no-repeat;
-            font: 3rem monospace;
-            letter-spacing: 1rem;
-            color: #fff;
+            max-width: 275px;
+            width: 90%;
+            font: 2.5rem monospace;
+            border: 1px solid black;
+            color: var(--black);
+            text-align: center;
+
             &:focus {
                 outline: none;
             }
@@ -94,3 +82,19 @@
     }
 }
 
+@media only screen and (max-width: 500px){
+    .otp-parent{
+        .otp-center{
+            width: 100%;
+
+            .otp-input-parent{
+                & h2{
+                    font-size: 22px;
+                }
+                & h3{
+                    font-size: 18px;
+                }
+            }
+        }
+    }
+}

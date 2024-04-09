@@ -25,12 +25,16 @@ const OTPVerify = () => {
         try {
             const res = await axios.post(`${BackendLink}/user/verifyOTP`, code)
             if (res.data.status == 'verified') {
-                toast("Verification Successful")
+                toast("Verification Successful", {
+                    type: 'success'
+                })
                 navigate('/')
             }
             else {
                 setError(res.data.message)
-                toast(error)
+                toast(error, {
+                    type: 'error'
+                })
             }
         } catch (error) {
             setError(error)
@@ -46,12 +50,14 @@ const OTPVerify = () => {
         <div className='otp-parent'>
             <div className="otp-center">
                 <div className='otp-input-parent'>
-                    <h2>Enter OTP</h2>
+                    <h2>We Have Sent You A Code</h2>
+                    <h3>Enter it below to verify Email</h3>
+                    <p>{email}</p>
                     <input className='otp-input' maxLength='4' value={otp} onChange={(e) => setOtp(e.target.value)} type="text" />
                 </div>
                 <button onClick={handelSubmit}>SUBMIT</button>
             </div>
-            <ToastContainer position="bottom-center" />
+            <ToastContainer theme='colored' position="bottom-center" />
         </div>
     )
 }

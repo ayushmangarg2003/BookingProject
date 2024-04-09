@@ -33,7 +33,9 @@ const Contact = () => {
           setEmail("")
           setSubject("")
           setMessage("")
-          toast("Message Sent Successfully");
+          toast("Message Sent Successfully", {
+            type: 'success'
+          });
         },
         (error) => {
           console.log('FAILED...', error.text);
@@ -74,7 +76,7 @@ const Contact = () => {
               <button className='form-btn'>Send</button>
             </div>
           </form>
-          <ToastContainer position="bottom-center" />
+          <ToastContainer position="bottom-center" theme={'colored'} />
         </div>
       </div>
     </>

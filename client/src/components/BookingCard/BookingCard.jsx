@@ -17,11 +17,19 @@ const BookingCard = (props) => {
 
   const handelReviewSubmit = (e) => {
     e.preventDefault()
+    if (review.length < 100) {
+      toast("Minimum Length is 100 Characters" , {
+        type:'error'
+      });
+      return
+    }
     const data = { place: booking.place, review: review }
     try {
       axios.post(`${BackendLink}/review/addReview`, data).then(() => {
         setReview("")
-        toast("Review Submited");
+        toast("Review Submited", {
+          type:'success'
+        });
       })
 
     } catch (error) {
@@ -41,7 +49,7 @@ const BookingCard = (props) => {
       loading ? (<ShimmerBookings />) :
         (
           <div className='booking-card'>
-            <ToastContainer position="bottom-center" />
+            <ToastContainer position="bottom-center" limit={5} theme='colored'/>
             <div className="booking-card-left">
               <img src={place.photos[0]} alt="Photo" />
             </div >
