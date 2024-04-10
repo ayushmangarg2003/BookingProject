@@ -1,10 +1,13 @@
+// Imports
 const mongoose = require('mongoose');
 
+// Schema
 const reviewSchema = new mongoose.Schema({
     place: { type: mongoose.Schema.Types.ObjectId, required: true, ref: 'Place' },
     review: String,
 });
 
+// Rate Function
 reviewSchema.statics.rate = async function (place, rating) {
     if (!rating) {
         throw Error('Empty Review Not Allowed')

@@ -46,6 +46,4 @@ const updatePlace = async (req, res) => {
     res.json('ok');
 }
 
-
-
 module.exports = { getAllPlaces, getPlaceByID, addPlace, updatePlace }

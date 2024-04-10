@@ -17,18 +17,18 @@ const app = express()
 
 // Middlewares
 app.use(cors())
-app.use('/uploads', express.static(__dirname + '/uploads'));
 app.use(express.json());
 app.use(cookieParser());
 
+// Routes
 app.use('/api/user', userRoutes)
 app.use('/api/bookings', bookingRoutes)
 app.use('/api/places', placeRoutes)
 app.use('/api/review', reviewRoutes)
 
-// Routes
-app.get('/test', (req, res) => {
-    res.json({ "test-status": "success" })
+// Test Route
+app.get('/api/test', (req, res) => {
+    res.json({ "test": "success" })
 })
 
 // Listening

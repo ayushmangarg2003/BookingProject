@@ -6,7 +6,6 @@ import { BackendLink } from '../App/App'
 import { ToastContainer, toast } from 'react-toastify';
 import ShimmerBookings from '../Shimmer/ShimmerBookings';
 
-
 const BookingCard = (props) => {
   const [place, setPlace] = useState({
     photos: []
@@ -23,7 +22,9 @@ const BookingCard = (props) => {
       });
       return
     }
+
     const data = { place: booking.place, review: review }
+
     try {
       axios.post(`${BackendLink}/review/addReview`, data).then(() => {
         setReview("")
@@ -33,6 +34,7 @@ const BookingCard = (props) => {
       })
 
     } catch (error) {
+      
     }
   }
 

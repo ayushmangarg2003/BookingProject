@@ -1,11 +1,9 @@
 // Imports
 const express = require('express');
-const multer = require('multer');
-const { getAllPlaces, getPlaceByID, addPlace, updatePlace, uploadbylink } = require('../controllers/PlaceController.js');
+const { getAllPlaces, getPlaceByID, addPlace, updatePlace } = require('../controllers/PlaceController.js');
 
 // Router Setup
 const router = express.Router();
-
 
 // Get All Places
 router.get('/', getAllPlaces);
@@ -18,7 +16,6 @@ router.post('/', addPlace);
 
 // Update Exisiting Place
 router.put('/', updatePlace);
-
 
 // Exports
 module.exports = router;

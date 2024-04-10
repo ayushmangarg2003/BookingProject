@@ -4,10 +4,10 @@ import "./Shimmer.css"
 const Shimmer = () => {
     return (
         <div className="shimmer-laptop">
-            <ShimmerSimpleGallery className="shimmer" card imageHeight={200} row={1} col={1} caption />
-            <ShimmerSimpleGallery className="shimmer" card imageHeight={200} row={1} col={1} caption />
-            <ShimmerSimpleGallery className="shimmer" card imageHeight={200} row={1} col={1} caption />
-            <ShimmerSimpleGallery className="shimmer" card imageHeight={200} row={1} col={1} caption />
+            <ShimmerSimpleGallery className="shimmer" card imageHeight={200} row={1} col={2} caption />
+            <ShimmerSimpleGallery className="shimmer" card imageHeight={200} row={1} col={2} caption />
+            <ShimmerSimpleGallery className="shimmer" card imageHeight={200} row={1} col={2} caption />
+            <ShimmerSimpleGallery className="shimmer" card imageHeight={200} row={1} col={2} caption />
         </div>
     );
 };

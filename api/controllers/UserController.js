@@ -6,7 +6,7 @@ const nodemailer = require('nodemailer');
 const UserOTPverification = require("../models/UserOTPverification.js");
 
 
-// Register User
+// Register User Function
 const registerUser = async (req, res) => {
     const { name, email, password } = req.body;
 
@@ -19,7 +19,7 @@ const registerUser = async (req, res) => {
     }
 }
 
-// Login User
+// Login User Function
 const loginUser = async (req, res) => {
     const { email, password } = req.body;
     try {
@@ -38,9 +38,9 @@ const loginUser = async (req, res) => {
     }
 }
 
-// Get user profile
+// Get user profile Function
 const getProfile = async (req, res) => {
-    const { email } = req.body 
+    const { email } = req.body
     const user = await User.findOne({ email: email });
     console.log("USER", user);
     if (user.email) {
@@ -52,7 +52,7 @@ const getProfile = async (req, res) => {
 
 // EMAIL Provider
 let transporter = nodemailer.createTransport({
-    service:"Gmail",
+    service: "Gmail",
     auth: {
         user: process.env.EMAIL,
         pass: process.env.PASS,
@@ -120,7 +120,7 @@ const verifyOTP = async (req, res) => {
                 const hashedOTP = UserVerificationRecord[0].otp
 
                 if (expiresAt < Date.now()) {
-                    UserOTPverification.deleteMany({ userId : userId });
+                    UserOTPverification.deleteMany({ userId: userId });
                     throw new Error("OTP has Expired ")
                 } else {
                     const validOTP = await bcrypt.compare(otp, hashedOTP)
@@ -129,7 +129,7 @@ const verifyOTP = async (req, res) => {
                         throw new Error("Invalid OTP")
                     } else {
                         await User.updateOne({ email: userId }, { verified: true })
-                        await UserOTPverification.deleteMany({ userId : userId });
+                        await UserOTPverification.deleteMany({ userId: userId });
                         res.json({
                             status: "verified",
                             message: "User is Verified Successfully"

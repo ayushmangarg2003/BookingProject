@@ -47,7 +47,6 @@ const SinglePlace = () => {
         setShowRev(true)
         setFiltered(temp)
       }
-      console.log('HI');
     }
     getReview()
   }, [place]);

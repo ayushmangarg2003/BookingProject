@@ -1,3 +1,4 @@
+// Imports
 const Booking = require('../models/BookingModel');
 
 // Get All Bookings
@@ -5,7 +6,7 @@ const getBookings = async (req, res) => {
     res.json(await Booking.find());
 }
 
-// New Bookings
+// New Booking Function
 const postBookings = async (req, res) => {
     const {
         place, user, checkIn, numberOfGuests, checkOut, name, phone, price
@@ -19,4 +20,5 @@ const postBookings = async (req, res) => {
     }
 }
 
+// Exports
 module.exports = { getBookings, postBookings }

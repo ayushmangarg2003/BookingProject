@@ -5,7 +5,6 @@ const { registerUser, loginUser, getProfile,verifyOTP } = require('../controller
 // Router Setup
 const router = express.Router();
 
-
 // Register 
 router.post('/register', registerUser);
 

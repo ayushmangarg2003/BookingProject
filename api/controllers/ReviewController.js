@@ -5,6 +5,7 @@ const getReview = async (req, res) => {
     res.json(await Reviews.find());
 }
 
+// Add a new Review
 const addReview = async (req, res) => {
     const { place, review } = req.body;
     try {

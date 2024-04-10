@@ -1,8 +1,9 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 
 import Navbar from "../Navbar/Navbar";
 import Footer from "../Footer/Footer";
+import Chatbot from '../ChatBot/Chatbot';
 
 import Login from "../../pages/Login/Login";
 import Register from "../../pages/Register/Register";
@@ -21,12 +22,18 @@ import Places from '../../pages/Places/Places';
 import SinglePlace from '../../pages/SinglePlace/SinglePlace';
 import { UserContextProvider } from "../../context/UserContext";
 
+import axios from 'axios';
+
 import "./App.css"
 import { Backend } from '../../utils/data';
-import Chatbot from '../ChatBot/Chatbot';
 
 export const BackendLink = Backend;
+
 const App = () => {
+
+  // Sending Request and Starting Server as soon as website loads
+  axios.get(`${BackendLink}/test`);
+
   return (
     <div className='app'>
       <UserContextProvider>

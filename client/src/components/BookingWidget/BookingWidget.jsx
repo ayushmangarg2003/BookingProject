@@ -15,9 +15,9 @@ const BookingWidget = (props) => {
     const [numberOfGuests, setNumberOfGuests] = useState(1);
     const [name, setName] = useState('');
     const [phone, setPhone] = useState('');
-    const navigate = useNavigate()
     const { user } = useUserContext()
     const [error, setError] = useState("")
+    const navigate = useNavigate()
 
     let numberOfNights = 0;
     if (checkIn && checkOut) {
@@ -28,13 +28,11 @@ const BookingWidget = (props) => {
         if (!user) {
             setError("Login or Signup First");
         } else {
-
             const response = await axios.post(`${BackendLink}/bookings`, {
                 checkIn: checkIn, checkOut: checkOut, numberOfGuests: numberOfGuests, name: name, phone: phone, user: user.email,
                 place: place._id,
                 price: numberOfNights * place.price,
             });
-            console.log("RESPONSE", response);
             if (response.data.error) {
                 setError(response.data.error)
             }
@@ -44,7 +42,6 @@ const BookingWidget = (props) => {
             }
         }
     }
-
 
     return (
         <div className='widget-parent'>
@@ -67,7 +64,7 @@ const BookingWidget = (props) => {
                     </div>
                 </div>
                 <div className='widget-max-guest'>
-                    <label><i class="fa-solid fa-people-group"> </i> Number of guests:</label>
+                    <label><i className="fa-solid fa-people-group"> </i> Number of guests:</label>
                     <input type="number"
                         required={true}
                         value={numberOfGuests}
@@ -76,14 +73,14 @@ const BookingWidget = (props) => {
                 {numberOfNights > 0 && (
                     <div className='extra-details'>
                         <div className='widget-extra'>
-                            <label><i class="fa-solid fa-user"> </i>Your full name:</label>
+                            <label><i className="fa-solid fa-user"> </i>Your full name:</label>
                             <input type="text"
                                 required={true}
                                 value={name}
                                 onChange={ev => setName(ev.target.value)} />
                         </div>
                         <div className='widget-extra'>
-                            <label><i class="fa-solid fa-phone"> </i> Phone number:</label>
+                            <label><i className="fa-solid fa-phone"> </i> Phone number:</label>
                             <input type="tel"
                                 placeholder='+919876543210'
                                 required={true}
