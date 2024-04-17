@@ -1,5 +1,4 @@
 # Homestayz
-Homestays is an innovative Homestay booking platform developed using the MERN Stack. The platform allows users to easily Create, Read, and Update Homestays. With its intuitive design and efficient user experience, Homestays simplifies the process of booking and renting.
 
 ## User Story 
 As a host, I want to easily showcase my property on Homestayz, so I can attract potential guests and increase bookings.    
