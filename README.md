@@ -12,6 +12,7 @@ Homestayz is an innovative Homestay booking platform developed using the MERN St
 Website :- https://homestayz.vercel.app/   
 Github Website :- https://github.com/ayushmangarg2003/Homestayz    
 Github App :- https://github.com/ayushmangarg2003/HomestayzApp    
+Review Analyzer Github :- https://github.com/ayushmangarg2003/HomestayzReviewAnalyser      
 
 ## Demo
 https://github.com/ayushmangarg2003/BookingProject/assets/105537793/af28a77c-5521-4cb5-96de-21cb5fc12f96
